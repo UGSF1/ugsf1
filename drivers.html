@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGS F1 | Driver Standings</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
+        </div>
+        <div class="subtitle">
+            Ukrainian Grand Series
+        </div>
+        <div class="season">
+            Season 1 ▼
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="drivers.html">Drivers</a>
+        <a href="teams.html">Teams</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="standings.html" class="active">Standings</a>
+    </nav>
+
+    <section class="page-container">
+        <!-- Шапка сторінки з вибором етапу -->
+        <div class="standings-header">
+            <h1 id="standings-title">DRIVER <span>STANDINGS</span></h1>
+            <div class="stage-selector-wrapper">
+                <label for="stage-select">SELECT ROUND:</label>
+                <select id="stage-select" class="stage-dropdown">
+                    <option value="overall">Overall Season 1</option>
+                    <!-- Етапи додаватимуться динамічно -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Контейнер для таблиці результатів -->
+        <div class="table-responsive">
+            <table class="standings-table" id="standings-table">
+                <thead id="table-head">
+                    <!-- Заголовок змінюється залежно від режиму -->
+                </thead>
+                <tbody id="table-body">
+                    <!-- Рядки генеруються скриптом -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

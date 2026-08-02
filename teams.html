@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGS F1 | Teams</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
+        </div>
+        <div class="subtitle">
+            Ukrainian Grand Series
+        </div>
+        <div class="season">
+            Season 1 ▼
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="teams.html" class="active">Teams</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="standings.html">Standings</a>
+    </nav>
+
+    <section class="page-container">
+        <h1>Команди <span>Сезону 1</span></h1>
+
+        <!-- Панель вкладок з логотипами команд -->
+        <div class="teams-tabs" id="teams-tabs"></div>
+
+        <!-- Контейнер для виводу деталей обраної команди -->
+        <div class="team-details-container" id="team-details"></div>
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

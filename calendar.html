@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGS F1 | Season 1 Calendar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
+        </div>
+        <div class="subtitle">
+            Ukrainian Grand Series
+        </div>
+        <div class="season">
+            Season 1 ▼
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="teams.html">Teams</a>
+        <a href="calendar.html" class="active">Calendar</a>
+        <a href="standings.html">Standings</a>
+    </nav>
+
+    <section class="calendar-page">
+        <h1>UGS F1 Season 1<br><span>CALENDAR</span></h1>
+        
+        <!-- Контейнер, куди JS буде вставляти гонки -->
+        <div class="calendar-grid" id="calendar-container"></div>
+    </section>
+
+    <!-- Підключаємо спочатку дані, а потім скрипт -->
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

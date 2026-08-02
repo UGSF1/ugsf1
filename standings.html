@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGS F1 | Standings</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">UGS F1</div>
+        <nav class="menu">
+            <a href="index.html">Головна</a>
+            <a href="teams.html">Команди</a>
+            <a href="calendar.html">Календар</a>
+            <a href="standings.html" class="active">Standings</a>
+        </nav>
+    </header>
+
+    <section class="page-container">
+        
+        <!-- Заголовок сторінки -->
+        <h1 id="standings-title">DRIVER <span>STANDINGS</span></h1>
+
+        <!-- Кнопки перемикання між пілотами та командами -->
+        <div class="standings-tabs">
+            <button id="tab-driver-standings" class="standings-tab-btn active">Driver Standings</button>
+            <button id="tab-team-standings" class="standings-tab-btn">Team Standings</button>
+        </div>
+
+        <!-- Панель фільтрів (Етап та Сесія) -->
+        <div class="standings-header">
+            <div class="filter-controls">
+                <div class="select-group">
+                    <label for="stage-select">Етап:</label>
+                    <select id="stage-select" class="stage-dropdown">
+                        <option value="overall">Overall Season 1</option>
+                    </select>
+                </div>
+
+                <div class="select-group" id="session-select-wrapper" style="display: none;">
+                    <label for="session-select">Сесія:</label>
+                    <select id="session-select" class="stage-dropdown">
+                        <!-- Заповнюється динамічно через script.js -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблиця результатів -->
+        <div class="table-responsive">
+            <table class="standings-table" id="standings-table">
+                <thead id="table-head"></thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
