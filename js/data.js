@@ -44,7 +44,7 @@ const teams = [
         name: "Alpine", 
         drivers: ["Yaroslav LOBODA", "Yaroslav PANKRATOV"],
         points: 175, // Вкажіть актуальну суму очок
-        wins: 0,
+        wins: 1,
         podiums: 10
     },
     { 
