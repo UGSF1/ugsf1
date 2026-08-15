@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         calendar.forEach((race) => {
             const raceCard = document.createElement("div");
             raceCard.classList.add("race-card");
+            raceCard.style.cursor = "pointer"; // Робимо курсор вказувачем
 
             const statusClass = race.status === "Completed" ? "status-completed" : "status-upcoming";
             const statusText = race.status === "Completed" ? "Completed" : "Upcoming";
@@ -42,6 +43,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="race-date">${race.date}</div>
                 </div>
             `;
+
+            // Перехід на сторінку результатів із передачею номера раунду
+            raceCard.addEventListener("click", () => {
+                window.location.href = `standings.html?round=${race.round}`;
+            });
+
             calendarContainer.appendChild(raceCard);
         });
     }
@@ -121,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const driverTabBtn = document.getElementById("tab-driver-standings");
     const teamTabBtn = document.getElementById("tab-team-standings");
 
-    let currentViewMode = "driver"; // "driver" або "team"
+    let currentViewMode = "driver";
 
     if (stageSelect && tableHead && tableBody && typeof drivers !== "undefined" && typeof teams !== "undefined") {
 
@@ -134,6 +141,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 option.textContent = `Round ${race.round} - ${race.country}`;
                 stageSelect.appendChild(option);
             });
+        }
+
+        // Перевірка URL-параметрів (якщо перейшли з календаря)
+        const urlParams = new URLSearchParams(window.location.search);
+        const roundFromUrl = urlParams.get("round");
+
+        if (roundFromUrl) {
+            stageSelect.value = roundFromUrl;
+            populateSessions(roundFromUrl);
         }
 
         // Головна функція рендеру таблиці
@@ -185,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // --- DRIVER OVERALL (РУЧНЕ ВВЕДЕННЯ З DATA.JS) ---
+        // --- DRIVER OVERALL ---
         function renderDriverOverall() {
             if (standingsTitle) standingsTitle.innerHTML = "DRIVER <span>STANDINGS</span>";
 
@@ -204,7 +220,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             `;
 
-            // Сортування пілотів за очками
             const sortedDrivers = [...drivers].sort((a, b) => (b.points || 0) - (a.points || 0));
 
             tableBody.innerHTML = sortedDrivers.map((d, index) => `
@@ -226,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `).join("");
         }
 
-        // --- TEAM OVERALL (БЕРЕ ДАНІ ПРЯМО З МАСИВУ TEAMS) ---
+        // --- TEAM OVERALL ---
         function renderTeamOverall() {
             if (standingsTitle) standingsTitle.innerHTML = "CONSTRUCTORS <span>STANDINGS</span>";
 
@@ -240,7 +255,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>
             `;
 
-            // Беремо дані з масиву teams (ігноруємо Reserve) та сортуємо за очками в порядку спадання
             const sortedTeams = teams
                 .filter(t => t.name !== "Reserve")
                 .sort((a, b) => (b.points || 0) - (a.points || 0));
@@ -287,20 +301,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const sessionData = raceData.sessions[sessionType];
 
-            tableBody.innerHTML = sessionData.map(res => `
-                <tr>
-                    <td class="pos-cell">${res.pos}</td>
-                    <td class="driver-no">#${res.number}</td>
-                    <td class="driver-name-cell">${res.name}</td>
-                    <td class="team-cell">
-                        <img src="${getLogoPath(res.team)}" class="table-team-logo" onerror="this.style.display='none'">
-                        <span>${res.team}</span>
-                    </td>
-                    <td>${res.time}</td>
-                    <td>${res.gap}</td>
-                    ${isQualy ? "" : `<td class="pts-cell">+${res.points || 0}</td>`}
-                </tr>
-            `).join("");
+            tableBody.innerHTML = sessionData.map(res => {
+                const isLeader = res.gap && res.gap.toString().toUpperCase() === "LEADER";
+                const leaderClass = isLeader ? 'class="leader-text"' : '';
+
+                return `
+                    <tr>
+                        <td class="pos-cell">${res.pos}</td>
+                        <td class="driver-no">#${res.number}</td>
+                        <td class="driver-name-cell">${res.name}</td>
+                        <td class="team-cell">
+                            <img src="${getLogoPath(res.team)}" class="table-team-logo" onerror="this.style.display='none'">
+                            <span>${res.team}</span>
+                        </td>
+                        <td ${leaderClass}>${res.time}</td>
+                        <td ${leaderClass}>${res.gap}</td>
+                        ${isQualy ? "" : `<td class="pts-cell">+${res.points || 0}</td>`}
+                    </tr>
+                `;
+            }).join("");
         }
 
         // --- TEAM SESSION ---
