@@ -1,5 +1,5 @@
 const drivers = [
-    { name: "Yevhenii PANCHENKO", team: "Mercedes", number: "22", country: "🇺🇦", points: 47, wins: 0, poles: 0, races: 6, dnf: 1, podiums: 1 },
+    { name: "Yevhenii PANCHENKO", team: "Mercedes", number: "22", country: "🇺kraine", points: 47, wins: 0, poles: 0, races: 6, dnf: 1, podiums: 1 },
     { name: "Maksym FILIPOV", team: "Mercedes", number: "52", country: "🇺🇦", points: 5, wins: 0, poles: 0, races: 6, dnf: 2, podiums: 0 },
     { name: "Nazar SHTEFANIUK", team: "Williams", number: "29", country: "🇺🇦", points: 35, wins: 1, poles: 0, races: 3, dnf: 0, podiums: 1 },
     { name: "Mykhailo ILLIUK", team: "Williams", number: "18", country: "🇺🇦", points: 17, wins: 0, poles: 0, races: 6, dnf: 1, podiums: 0 },
@@ -454,7 +454,7 @@ const raceResults = [
                 { pos: 2, number: "15", name: "Yaroslav PANKRATOV", team: "Alpine", time: "+1.401", gap: "-", points: 18 },
                 { pos: 3, number: "22", name: "Yevhenii PANCHENKO", team: "Mercedes", time: "+40.750", gap: "-", points: 15 },
                 { pos: 4, number: "69", name: "Volodymyr MYKHALYUK", team: "Red Bull Racing", time: "+58.748", gap: "-", points: 12 },
-                { pos: 5, number: "76", name: "Yaroslav MURCHIK", team: "Kick Sauber", time: "+1:08.814", gap: "-", points: 10 },
+                { pos: 5, number: "76", name: "Yaroslav MURCHIK", team: "Red Bull Racing", time: "+1:08.814", gap: "-", points: 10 },
                 { pos: 6, number: "71", name: "Stanislav MARCHENKO", team: "Haas F1 Team", time: "+1 lap", gap: "-", points: 8 },
                 { pos: 7, number: "59", name: "Rostyslav PYLIAK", team: "Ferrari", time: "+1 laps", gap: "-", points: 6 },
                 { pos: 8, number: "18", name: "Mykhailo ILLIUK", team: "Williams", time: "+1 laps", gap: "-", points: 4 },
