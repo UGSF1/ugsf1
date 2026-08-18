@@ -1,3 +1,71 @@
+// ==========================================
+// ГЛОБАЛЬНІ ФУНКЦІЇ ДЛЯ МОДАЛЬНОГО ВІКНА ПІЛОТА
+// ==========================================
+window.openDriverModal = function(driverNumber) {
+    if (typeof drivers === "undefined") return;
+
+    // Очищаємо номер від '#' та шукаємо пілота
+    const cleanNumber = driverNumber.toString().replace('#', '');
+    const driver = drivers.find(d => d.number.toString().replace('#', '') === cleanNumber);
+    if (!driver) return;
+
+    let modal = document.getElementById("driver-modal");
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.id = "driver-modal";
+        modal.className = "driver-modal-overlay";
+        document.body.appendChild(modal);
+    }
+
+    const photoPath = `drivers/${cleanNumber}.png`;
+    const ppValue = driver.pp !== undefined ? driver.pp : (driver.penaltyPoints !== undefined ? driver.penaltyPoints : 0);
+
+    modal.innerHTML = `
+        <div class="driver-modal-content">
+            <button class="driver-modal-close" onclick="closeDriverModal()">&times;</button>
+            <div class="driver-profile-grid">
+                <div class="driver-stats-left">
+                    <h2>${driver.country || ''} ${driver.name} <span class="driver-modal-no">#${driver.number}</span></h2>
+                    <div class="modal-team-title">${driver.team}</div>
+                    
+                    <div class="modal-stats-list">
+                        <div class="stat-row"><span class="stat-label">PTS (Очки):</span> <span class="stat-value pts-color">${driver.points || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">WINS (Перемоги):</span> <span class="stat-value">${driver.wins || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">POLES (Поули):</span> <span class="stat-value">${driver.poles || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">PODIUMS (Подіуми):</span> <span class="stat-value">${driver.podiums || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">RACES (Гонки):</span> <span class="stat-value">${driver.races || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">DNF (Сходи):</span> <span class="stat-value">${driver.dnf || 0}</span></div>
+                        <div class="stat-row"><span class="stat-label">PP (Штрафні очки):</span> <span class="stat-value pp-color">${ppValue}</span></div>
+                    </div>
+                </div>
+                <div class="driver-photo-right">
+                    <img src="${photoPath}" alt="${driver.name}" onerror="this.onerror=null; this.src='drivers/default.png';">
+                </div>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add("active");
+
+    modal.onclick = (e) => {
+        if (e.target === modal) closeDriverModal();
+    };
+};
+
+window.closeDriverModal = function() {
+    const modal = document.getElementById("driver-modal");
+    if (modal) modal.classList.remove("active");
+};
+
+// Закриття по клавіші ESC
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDriverModal();
+});
+
+
+// ==========================================
+// ОСНОВНА ЛОГІКА СТОРІНКИ
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     
     // Допоміжні функції для шляхів
@@ -13,6 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
         return `flags/${fileName}`;
     };
 
+    const getDriverPhotoPath = (driverNumber) => {
+        if (!driverNumber) return "";
+        const cleanNumber = driverNumber.toString().replace('#', '');
+        return `drivers/${cleanNumber}.png`;
+    };
+
     // --- 1. ГЕНЕРАЦІЯ КАЛЕНДАРЯ ---
     const calendarContainer = document.getElementById("calendar-container");
     if (calendarContainer && typeof calendar !== "undefined") {
@@ -20,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         calendar.forEach((race) => {
             const raceCard = document.createElement("div");
             raceCard.classList.add("race-card");
-            raceCard.style.cursor = "pointer"; // Робимо курсор вказувачем
+            raceCard.style.cursor = "pointer";
 
             const statusClass = race.status === "Completed" ? "status-completed" : "status-upcoming";
             const statusText = race.status === "Completed" ? "Completed" : "Upcoming";
@@ -44,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             `;
 
-            // Перехід на сторінку результатів із передачею номера раунду
             raceCard.addEventListener("click", () => {
                 window.location.href = `standings.html?round=${race.round}`;
             });
@@ -67,10 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const teamDrivers = drivers.filter(d => d.team === teamName);
 
             let driversHTML = teamDrivers.map(d => `
-                <div class="driver-card custom-card">
+                <div class="driver-card custom-card clickable-card" onclick="openDriverModal('${d.number}')">
+                    <div class="driver-photo-wrapper">
+                        <img src="${getDriverPhotoPath(d.number)}" alt="${d.name}" class="driver-card-photo" onerror="this.style.display='none'">
+                    </div>
                     <div class="card-number">#${d.number}</div>
                     <div class="card-info">
-                        <h3>${d.country} ${d.name}</h3>
+                        <h3>${d.country || ''} ${d.name}</h3>
                         <div class="driver-team-info">
                             <img src="${getLogoPath(d.team)}" alt="${d.team}" class="driver-team-logo" onerror="this.style.display='none'">
                             <span class="team-name">${d.team}</span>
@@ -201,7 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // --- DRIVER OVERALL ---
+        // --- DRIVER OVERALL (Звирівняно та додано PP) ---
         function renderDriverOverall() {
             if (standingsTitle) standingsTitle.innerHTML = "DRIVER <span>STANDINGS</span>";
 
@@ -217,28 +293,41 @@ document.addEventListener("DOMContentLoaded", () => {
                     <th>RACES</th>
                     <th>DNF</th>
                     <th>PODIUMS</th>
+                    <th>PP</th>
                 </tr>
             `;
 
             const sortedDrivers = [...drivers].sort((a, b) => (b.points || 0) - (a.points || 0));
 
-            tableBody.innerHTML = sortedDrivers.map((d, index) => `
-                <tr>
-                    <td class="pos-cell">${index + 1}</td>
-                    <td class="driver-no">#${d.number}</td>
-                    <td class="driver-name-cell">${d.country} ${d.name}</td>
-                    <td class="team-cell">
-                        <img src="${getLogoPath(d.team)}" class="table-team-logo" onerror="this.style.display='none'">
-                        <span>${d.team}</span>
-                    </td>
-                    <td class="pts-cell">${d.points || 0}</td>
-                    <td>${d.wins || 0}</td>
-                    <td>${d.poles || 0}</td>
-                    <td>${d.races || 0}</td>
-                    <td>${d.dnf || 0}</td>
-                    <td>${d.podiums || 0}</td>
-                </tr>
-            `).join("");
+            tableBody.innerHTML = sortedDrivers.map((d, index) => {
+                const ppVal = d.pp !== undefined ? d.pp : (d.penaltyPoints !== undefined ? d.penaltyPoints : 0);
+
+                return `
+                    <tr onclick="openDriverModal('${d.number}')" class="clickable-row">
+                        <td class="pos-cell">${index + 1}</td>
+                        <td class="driver-no">#${d.number}</td>
+                        <td>
+                            <div class="driver-name-cell">
+                                <img src="${getDriverPhotoPath(d.number)}" class="table-driver-photo" onerror="this.style.display='none'">
+                                <span>${d.country || ''} ${d.name}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="team-cell">
+                                <img src="${getLogoPath(d.team)}" class="table-team-logo" onerror="this.style.display='none'">
+                                <span>${d.team}</span>
+                            </div>
+                        </td>
+                        <td class="pts-cell">${d.points || 0}</td>
+                        <td>${d.wins || 0}</td>
+                        <td>${d.poles || 0}</td>
+                        <td>${d.races || 0}</td>
+                        <td>${d.dnf || 0}</td>
+                        <td>${d.podiums || 0}</td>
+                        <td class="pp-color">${ppVal}</td>
+                    </tr>
+                `;
+            }).join("");
         }
 
         // --- TEAM OVERALL ---
@@ -262,9 +351,11 @@ document.addEventListener("DOMContentLoaded", () => {
             tableBody.innerHTML = sortedTeams.map((t, index) => `
                 <tr>
                     <td class="pos-cell">${index + 1}</td>
-                    <td class="team-cell">
-                        <img src="${getLogoPath(t.name)}" class="table-team-logo" onerror="this.style.display='none'">
-                        <strong>${t.name}</strong>
+                    <td>
+                        <div class="team-cell">
+                            <img src="${getLogoPath(t.name)}" class="table-team-logo" onerror="this.style.display='none'">
+                            <strong>${t.name}</strong>
+                        </div>
                     </td>
                     <td class="pts-cell">${t.points || 0}</td>
                     <td>${t.wins || 0}</td>
@@ -306,13 +397,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 const leaderClass = isLeader ? 'class="leader-text"' : '';
 
                 return `
-                    <tr>
+                    <tr onclick="openDriverModal('${res.number}')" class="clickable-row">
                         <td class="pos-cell">${res.pos}</td>
                         <td class="driver-no">#${res.number}</td>
-                        <td class="driver-name-cell">${res.name}</td>
-                        <td class="team-cell">
-                            <img src="${getLogoPath(res.team)}" class="table-team-logo" onerror="this.style.display='none'">
-                            <span>${res.team}</span>
+                        <td>
+                            <div class="driver-name-cell">
+                                <img src="${getDriverPhotoPath(res.number)}" class="table-driver-photo" onerror="this.style.display='none'">
+                                <span>${res.name}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="team-cell">
+                                <img src="${getLogoPath(res.team)}" class="table-team-logo" onerror="this.style.display='none'">
+                                <span>${res.team}</span>
+                            </div>
                         </td>
                         <td ${leaderClass}>${res.time}</td>
                         <td ${leaderClass}>${res.gap}</td>
@@ -365,9 +463,11 @@ document.addEventListener("DOMContentLoaded", () => {
             tableBody.innerHTML = sortedTeams.map((t, index) => `
                 <tr>
                     <td class="pos-cell">${index + 1}</td>
-                    <td class="team-cell">
-                        <img src="${getLogoPath(t.name)}" class="table-team-logo" onerror="this.style.display='none'">
-                        <strong>${t.name}</strong>
+                    <td>
+                        <div class="team-cell">
+                            <img src="${getLogoPath(t.name)}" class="table-team-logo" onerror="this.style.display='none'">
+                            <strong>${t.name}</strong>
+                        </div>
                     </td>
                     <td>${t.drivers.join(", ") || "—"}</td>
                     ${isQualy ? "" : `<td class="pts-cell">+${t.points}</td>`}
