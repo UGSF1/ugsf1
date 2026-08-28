@@ -41,16 +41,67 @@
 
     <main>
 
-        <h1>
-            Welcome to UGS F1
-        </h1>
+        <!-- ВІДЕО-БЛОК З ЗВОРОТНИМ ВІДЛІКОМ (HERO BANNER) -->
+        <section class="hero-container">
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="video/race-loop.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
 
-        <p>
-            Official website of Ukrainian Grand Series Championship
-        </p>
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <div class="f1-header-badge">
+                    <span class="f1-logo-text">UGS</span>
+                    <span class="sub-badge">FORMULA 1 LEAGUE</span>
+                </div>
+
+                <div class="title-with-lines">
+                    <div class="red-line"></div>
+                    <h1 id="next-race-title" class="grand-prix-title">GRANDE PRÊMIO DO BRASIL</h1>
+                    <div class="red-line"></div>
+                </div>
+
+                <p class="race-dates">SAO PAULO 2026</p>
+
+                <div class="countdown-inline">
+                    <div class="time-item">
+                        <span id="cd-days" class="number">00</span>
+                        <span class="label">DAYS</span>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="time-item">
+                        <span id="cd-hours" class="number">00</span>
+                        <span class="label">HOURS</span>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="time-item">
+                        <span id="cd-minutes" class="number">00</span>
+                        <span class="label">MINUTES</span>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="time-item">
+                        <span id="cd-seconds" class="number">00</span>
+                        <span class="label">SECONDS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="welcome-text">
+            <h1>
+                Welcome to UGS F1
+            </h1>
+
+            <p>
+                Official website of Ukrainian Grand Series Championship
+            </p>
+        </section>
 
     </main>
 
+    <!-- Підключення JS скрипта -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

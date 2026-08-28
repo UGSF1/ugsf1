@@ -4,9 +4,9 @@
 window.openDriverModal = function(driverNumber) {
     if (typeof drivers === "undefined") return;
 
-    // Очищаємо номер від '#' та шукаємо пілота
-    const cleanNumber = driverNumber.toString().replace('#', '');
-    const driver = drivers.find(d => d.number.toString().replace('#', '') === cleanNumber);
+    // Нормалізація номера для точного пошуку
+    const cleanNumber = driverNumber.toString().replace('#', '').trim();
+    const driver = drivers.find(d => d.number.toString().replace('#', '').trim() === cleanNumber);
     if (!driver) return;
 
     let modal = document.getElementById("driver-modal");
@@ -46,6 +46,7 @@ window.openDriverModal = function(driverNumber) {
     `;
 
     modal.classList.add("active");
+    document.body.style.overflow = "hidden"; // Блокуємо скрол фону
 
     modal.onclick = (e) => {
         if (e.target === modal) closeDriverModal();
@@ -54,7 +55,10 @@ window.openDriverModal = function(driverNumber) {
 
 window.closeDriverModal = function() {
     const modal = document.getElementById("driver-modal");
-    if (modal) modal.classList.remove("active");
+    if (modal) {
+        modal.classList.remove("active");
+        document.body.style.overflow = ""; // Повертаємо скрол
+    }
 };
 
 // Закриття по клавіші ESC
@@ -64,26 +68,117 @@ document.addEventListener("keydown", (e) => {
 
 
 // ==========================================
+// ТАЙМЕР ЗВОРОТНОГО ВІДЛІКУ (HOME PAGE HERO)
+// ==========================================
+function initRaceCountdown() {
+    const titleEl = document.getElementById("next-race-title");
+    const daysEl = document.getElementById("cd-days");
+    const hoursEl = document.getElementById("cd-hours");
+    const minsEl = document.getElementById("cd-minutes");
+    const secsEl = document.getElementById("cd-seconds");
+
+    if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
+
+    // Якщо calendar підключено — шукаємо майбутній етап
+    if (typeof calendar !== "undefined" && Array.isArray(calendar)) {
+        const upcomingRace = calendar.find(race => race.status !== "Completed");
+
+        if (!upcomingRace) {
+            if (titleEl) titleEl.innerHTML = `SEASON <span>FINISHED</span>`;
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minsEl.textContent = "00";
+            secsEl.textContent = "00";
+            return;
+        }
+
+        if (titleEl) {
+            const raceName = upcomingRace.country ? upcomingRace.country.toUpperCase() + " GP" : "NEXT GP";
+            titleEl.innerHTML = `NEXT RACE: <span>${raceName}</span>`;
+        }
+    }
+
+    // 1. Отримуємо поточний час за Києвом
+    function getKyivNow() {
+        const now = new Date();
+        const kyivTimeString = now.toLocaleString("en-US", { timeZone: "Europe/Kyiv" });
+        return new Date(kyivTimeString);
+    }
+
+    // 2. Розраховуємо дату найближчої п'ятниці 20:00 за Києвом
+    function getTargetTimestamp() {
+        const kyivNow = getKyivNow();
+        const target = new Date(kyivNow.getTime());
+
+        let dayOfWeek = kyivNow.getDay(); // 0 - Нд, 1 - Пн, ..., 5 - Пт, 6 - Сб
+        let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
+
+        // Якщо сьогодні п'ятниця, але 20:00 за Києвом вже минула — беремо наступну п'ятницю (+7 днів)
+        if (daysUntilFriday === 0 && kyivNow.getHours() >= 20) {
+            daysUntilFriday = 7;
+        }
+
+        target.setDate(kyivNow.getDate() + daysUntilFriday);
+        target.setHours(20, 0, 0, 0);
+
+        const diffMs = target.getTime() - kyivNow.getTime();
+        return Date.now() + diffMs;
+    }
+
+    const raceTargetTime = getTargetTimestamp();
+
+    function updateTimer() {
+        const now = Date.now();
+        const diff = raceTargetTime - now;
+
+        if (diff <= 0) {
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minsEl.textContent = "00";
+            secsEl.textContent = "00";
+            if (titleEl) titleEl.innerHTML = `RACE <span>IN PROGRESS / LIVE</span>`;
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        daysEl.textContent = days.toString().padStart(2, '0');
+        hoursEl.textContent = hours.toString().padStart(2, '0');
+        minsEl.textContent = minutes.toString().padStart(2, '0');
+        secsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+}
+
+
+// ==========================================
 // ОСНОВНА ЛОГІКА СТОРІНКИ
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     
+    initRaceCountdown();
+
     // Допоміжні функції для шляхів
     const getLogoPath = (teamName) => {
         if (!teamName) return "";
-        const fileName = teamName.toLowerCase().replace(/\s+/g, '-') + ".png";
+        const fileName = teamName.toLowerCase().trim().replace(/\s+/g, '-') + ".png";
         return `logos/${fileName}`;
     };
 
     const getFlagPath = (countryName) => {
         if (!countryName) return "";
-        const fileName = countryName.toLowerCase().replace(/\s+/g, '-') + ".png";
+        const fileName = countryName.toLowerCase().trim().replace(/\s+/g, '-') + ".png";
         return `flags/${fileName}`;
     };
 
     const getDriverPhotoPath = (driverNumber) => {
         if (!driverNumber) return "";
-        const cleanNumber = driverNumber.toString().replace('#', '');
+        const cleanNumber = driverNumber.toString().replace('#', '').trim();
         return `drivers/${cleanNumber}.png`;
     };
 
@@ -126,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- 2. ГЕНЕРАЦІЯ ІНТЕРАКТИВНИХ ВКЛАДОК КОМАНД (TEAMS) ---
+    // --- 2. ГЕНЕРАЦІЯ ІНТЕРАКТИВНИХ ВКЛАДОК КОМАНД ---
     const teamsTabs = document.getElementById("teams-tabs");
     const teamDetails = document.getElementById("team-details");
 
@@ -142,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let driversHTML = teamDrivers.map(d => `
                 <div class="driver-card custom-card clickable-card" onclick="openDriverModal('${d.number}')">
                     <div class="driver-photo-wrapper">
-                        <img src="${getDriverPhotoPath(d.number)}" alt="${d.name}" class="driver-card-photo" onerror="this.style.display='none'">
+                        <img src="${getDriverPhotoPath(d.number)}" alt="${d.name}" class="driver-card-photo" onerror="this.onerror=null; this.src='drivers/default.png';">
                     </div>
                     <div class="card-number">#${d.number}</div>
                     <div class="card-info">
@@ -208,7 +303,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (stageSelect && tableHead && tableBody && typeof drivers !== "undefined" && typeof teams !== "undefined") {
 
-        // Заповнення випадаючого списку етапів
         if (typeof raceResults !== "undefined") {
             stageSelect.innerHTML = `<option value="overall">Overall Season 1</option>`;
             raceResults.forEach(race => {
@@ -219,7 +313,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Перевірка URL-параметрів (якщо перейшли з календаря)
         const urlParams = new URLSearchParams(window.location.search);
         const roundFromUrl = urlParams.get("round");
 
@@ -228,7 +321,6 @@ document.addEventListener("DOMContentLoaded", () => {
             populateSessions(roundFromUrl);
         }
 
-        // Головна функція рендеру таблиці
         function updateTable() {
             const selectedStage = stageSelect.value;
             const selectedSession = sessionSelect ? sessionSelect.value : "race";
@@ -250,9 +342,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Наповнення доступних сесій при виборі етапу
         function populateSessions(roundNum) {
-            if (!sessionSelect) return;
+            if (!sessionSelect || typeof raceResults === "undefined") return;
             const raceData = raceResults.find(r => r.round == roundNum);
             sessionSelect.innerHTML = "";
 
@@ -277,7 +368,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // --- DRIVER OVERALL (Звирівняно та додано PP) ---
+        // --- DRIVER OVERALL ---
         function renderDriverOverall() {
             if (standingsTitle) standingsTitle.innerHTML = "DRIVER <span>STANDINGS</span>";
 
@@ -503,7 +594,6 @@ document.addEventListener("DOMContentLoaded", () => {
             sessionSelect.addEventListener("change", updateTable);
         }
 
-        // Перший рендер
         updateTable();
     }
 });

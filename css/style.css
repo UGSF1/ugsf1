@@ -74,11 +74,184 @@ body {
 }
 
 /* ==========================================
+   HERO BANNER З ВІДЕО ТА ТАЙМЕРОМ (ГОЛОВНА)
+   ========================================== */
+.hero-container {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Бейдж UGS FORMULA 1 LEAGUE */
+.f1-header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #333;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.f1-logo-text {
+    background: #e10600;
+    color: #ffffff;
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+}
+
+.sub-badge {
+    color: #cccccc;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+/* Назва Гран-прі з червоними лініями */
+.title-with-lines {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.red-line {
+    height: 3px;
+    width: 80px;
+    background: #e10600;
+    border-radius: 2px;
+}
+
+.grand-prix-title {
+    font-size: 42px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+}
+
+.race-dates {
+    font-size: 14px;
+    color: #888888;
+    letter-spacing: 4px;
+    margin: 0 0 30px 0;
+    font-weight: bold;
+}
+
+/* Таймер в один рядок з двокрапками */
+.countdown-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 35px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.time-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 65px;
+}
+
+.time-item .number {
+    font-size: 38px;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.time-item .label {
+    font-size: 10px;
+    color: #e10600;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+.colon {
+    font-size: 32px;
+    font-weight: 900;
+    color: #e10600;
+    margin-bottom: 16px;
+}
+
+/* Текст привітання під відео */
+.welcome-text {
+    padding: 60px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-text h1 {
+    font-size: 36px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.welcome-text p {
+    font-size: 18px;
+    color: #aaaaaa;
+}
+
+/* ==========================================
    ГОЛОВНИЙ КОНТЕЙНЕР
    ========================================== */
 main {
     text-align: center;
-    padding: 20px;
+    padding: 0;
 }
 
 .page-container,
@@ -350,7 +523,6 @@ main {
     background: #202020;
 }
 
-/* Фото пілота у картці команди */
 .driver-photo-wrapper {
     flex-shrink: 0;
     display: flex;
@@ -407,8 +579,6 @@ main {
 /* ==========================================
    ТУРНІРНЕ СТАНОВИЩЕ (STANDINGS PAGE)
    ========================================== */
-
-/* Таби заліку: Driver vs Team */
 .standings-tabs {
     display: flex;
     gap: 15px;
@@ -438,7 +608,6 @@ main {
     color: #ffffff;
 }
 
-/* Панель фільтрів */
 .standings-header {
     display: flex;
     justify-content: space-between;
@@ -483,7 +652,6 @@ main {
     border-color: #e10600;
 }
 
-/* Таблиця */
 .table-responsive {
     width: 100%;
     max-width: 1100px;
@@ -494,7 +662,6 @@ main {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Кастомний скроллбар для таблиці */
 .table-responsive::-webkit-scrollbar {
     height: 8px;
 }
@@ -558,7 +725,6 @@ main {
     white-space: nowrap;
 }
 
-/* Аватар та ім'я у таблицях (захист від зсувів) */
 .driver-name-cell {
     font-weight: bold;
     display: inline-flex;
@@ -597,7 +763,7 @@ main {
 }
 
 /* ==========================================
-   СТИЛІ ДЛЯ СЕСІЙ ТА ЛІДЕРІВ (ЕА / ЕТАПИ)
+   СТИЛІ ДЛЯ СЕСІЙ ТА ЛІДЕРІВ
    ========================================== */
 .leader-text,
 .leader-time,
@@ -726,7 +892,7 @@ main {
 }
 
 .pp-color {
-    color: #ff9800; /* Помаранчевий колір для Penalty Points */
+    color: #ff9800;
     font-weight: bold;
 }
 
@@ -750,6 +916,45 @@ main {
    АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
    ========================================== */
 @media (max-width: 768px) {
+    .hero-container {
+        min-height: 400px;
+    }
+
+    .title-with-lines {
+        gap: 10px;
+    }
+
+    .red-line {
+        width: 30px;
+    }
+
+    .grand-prix-title {
+        font-size: 26px;
+        letter-spacing: 1px;
+    }
+
+    .countdown-inline {
+        padding: 15px 20px;
+        gap: 8px;
+    }
+
+    .time-item {
+        min-width: 45px;
+    }
+
+    .time-item .number {
+        font-size: 24px;
+    }
+
+    .time-item .label {
+        font-size: 9px;
+    }
+
+    .colon {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
     .calendar-grid {
         grid-template-columns: 1fr;
     }
