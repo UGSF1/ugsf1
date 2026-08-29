@@ -68,10 +68,11 @@ document.addEventListener("keydown", (e) => {
 
 
 // ==========================================
-// ТАЙМЕР ЗВОРОТНОГО ВІДЛІКУ (HOME PAGE HERO)
+// ТАЙМЕР ЗВОРОТНОГО ВІДЛІКУ (UGS F1 - ДВОЕТАПНИЙ)
 // ==========================================
 function initRaceCountdown() {
     const titleEl = document.getElementById("next-race-title");
+    const subTitleEl = document.getElementById("next-race-sub");
     const daysEl = document.getElementById("cd-days");
     const hoursEl = document.getElementById("cd-hours");
     const minsEl = document.getElementById("cd-minutes");
@@ -79,66 +80,68 @@ function initRaceCountdown() {
 
     if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-    // Якщо calendar підключено — шукаємо майбутній етап
+    // Повний розклад сесій (Київський час)
+    const schedule = {
+        10: {
+            sprint: "2026-09-03T20:00:00+03:00", // Miami Sprint
+            main:   "2026-09-04T20:00:00+03:00"  // Miami Feature Race
+        },
+        11: {
+            main:   "2026-09-11T20:00:00+03:00"  // Doha Main Race
+        },
+        12: {
+            main:   "2026-09-18T20:00:00+03:00"  // Yas Island Main Race
+        }
+    };
+
+    let upcomingRace = null;
     if (typeof calendar !== "undefined" && Array.isArray(calendar)) {
-        const upcomingRace = calendar.find(race => race.status !== "Completed");
-
-        if (!upcomingRace) {
-            if (titleEl) titleEl.innerHTML = `SEASON <span>FINISHED</span>`;
-            daysEl.textContent = "00";
-            hoursEl.textContent = "00";
-            minsEl.textContent = "00";
-            secsEl.textContent = "00";
-            return;
-        }
-
-        if (titleEl) {
-            const raceName = upcomingRace.country ? upcomingRace.country.toUpperCase() + " GP" : "NEXT GP";
-            titleEl.innerHTML = `NEXT RACE: <span>${raceName}</span>`;
-        }
+        upcomingRace = calendar.find(race => race.status === "Upcoming");
     }
 
-    // 1. Отримуємо поточний час за Києвом
-    function getKyivNow() {
-        const now = new Date();
-        const kyivTimeString = now.toLocaleString("en-US", { timeZone: "Europe/Kyiv" });
-        return new Date(kyivTimeString);
+    if (!upcomingRace) {
+        if (titleEl) titleEl.innerHTML = `SEASON <span>FINISHED</span>`;
+        if (subTitleEl) subTitleEl.textContent = "SEE YOU NEXT SEASON";
+        daysEl.textContent = "00";
+        hoursEl.textContent = "00";
+        minsEl.textContent = "00";
+        secsEl.textContent = "00";
+        return;
     }
 
-    // 2. Розраховуємо дату найближчої п'ятниці 20:00 за Києвом
-    function getTargetTimestamp() {
-        const kyivNow = getKyivNow();
-        const target = new Date(kyivNow.getTime());
-
-        let dayOfWeek = kyivNow.getDay(); // 0 - Нд, 1 - Пн, ..., 5 - Пт, 6 - Сб
-        let daysUntilFriday = (5 - dayOfWeek + 7) % 7;
-
-        // Якщо сьогодні п'ятниця, але 20:00 за Києвом вже минула — беремо наступну п'ятницю (+7 днів)
-        if (daysUntilFriday === 0 && kyivNow.getHours() >= 20) {
-            daysUntilFriday = 7;
-        }
-
-        target.setDate(kyivNow.getDate() + daysUntilFriday);
-        target.setHours(20, 0, 0, 0);
-
-        const diffMs = target.getTime() - kyivNow.getTime();
-        return Date.now() + diffMs;
-    }
-
-    const raceTargetTime = getTargetTimestamp();
+    const roundData = schedule[upcomingRace.round] || {};
+    const trackName = upcomingRace.track ? upcomingRace.track.toUpperCase() : "NEXT GP";
 
     function updateTimer() {
         const now = Date.now();
-        const diff = raceTargetTime - now;
+        let targetTimestamp = null;
+        let sessionLabel = "NEXT RACE";
 
-        if (diff <= 0) {
+        // Перевірка 1: Чи є спринт і чи він попереду
+        if (roundData.sprint && new Date(roundData.sprint).getTime() > now) {
+            targetTimestamp = new Date(roundData.sprint).getTime();
+            sessionLabel = "SPRINT RACE";
+        } 
+        // Перевірка 2: Якщо спринт пройшов (або відсутній), орієнтуємося на Основну гонку
+        else if (roundData.main && new Date(roundData.main).getTime() > now) {
+            targetTimestamp = new Date(roundData.main).getTime();
+            sessionLabel = "FEATURE RACE";
+        }
+
+        // Якщо всі сесії етапу вже відбулися (чекаємо зміни status у data.js)
+        if (!targetTimestamp) {
             daysEl.textContent = "00";
             hoursEl.textContent = "00";
             minsEl.textContent = "00";
             secsEl.textContent = "00";
-            if (titleEl) titleEl.innerHTML = `RACE <span>IN PROGRESS / LIVE</span>`;
+            if (titleEl) titleEl.innerHTML = `RACE <span>LIVE / IN PROGRESS</span>`;
             return;
         }
+
+        if (titleEl) titleEl.innerHTML = `${sessionLabel}: <span>${trackName}</span>`;
+        if (subTitleEl) subTitleEl.textContent = `${trackName} ${upcomingRace.date}`;
+
+        const diff = targetTimestamp - now;
 
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -161,6 +164,7 @@ function initRaceCountdown() {
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     
+    // Ініціалізація таймера
     initRaceCountdown();
 
     // Допоміжні функції для шляхів

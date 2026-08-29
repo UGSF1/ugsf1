@@ -124,7 +124,7 @@ const calendar = [
     { round: 6, country: "Austria", flag: "🇦🇹", track: "Spielberg", date: "7 AUG", status: "Completed", hasSprint: false },
     { round: 7, country: "Italy", flag: "🇮🇹", track: "Monza", date: "14 AUG", status: "Completed", hasSprint: false },
     { round: 8, country: "Azerbaijan", flag: "🇦🇿", track: "Baku", date: "20-21 AUG", status: "Completed", hasSprint: true },
-    { round: 9, country: "Brazil", flag: "🇧🇷", track: "São Paulo", date: "28 AUG", status: "Upcoming", hasSprint: false },
+    { round: 9, country: "Brazil", flag: "🇧🇷", track: "São Paulo", date: "28 AUG", status: "Completed", hasSprint: false },
     { round: 10, country: "USA", flag: "🇺🇸", track: "Miami", date: "03-04 SEP", status: "Upcoming", hasSprint: true },
     { round: 11, country: "Qatar", flag: "🇶🇦", track: "Doha", date: "11 SEP", status: "Upcoming", hasSprint: false },
     { round: 12, country: "Abu Dhabi", flag: "🇦🇪", track: "Yas Island", date: "18 SEP", status: "Upcoming", hasSprint: false }

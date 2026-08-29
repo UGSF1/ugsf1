@@ -58,11 +58,12 @@
 
                 <div class="title-with-lines">
                     <div class="red-line"></div>
-                    <h1 id="next-race-title" class="grand-prix-title">GRANDE PRÊMIO DO BRASIL</h1>
+                    <h1 id="next-race-title" class="grand-prix-title">LOADING...</h1>
                     <div class="red-line"></div>
                 </div>
 
-                <p class="race-dates">SAO PAULO 2026</p>
+                <!-- Динамічна зміна назви міста та року -->
+                <p id="next-race-sub" class="race-dates"></p>
 
                 <div class="countdown-inline">
                     <div class="time-item">
@@ -100,7 +101,8 @@
 
     </main>
 
-    <!-- Підключення JS скрипта -->
+    <!-- Правильне підключення даних та скриптів -->
+    <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 </body>
 
