@@ -89,7 +89,7 @@ const teams = [
     { 
         name: "Mercedes", 
         drivers: ["Yevhenii PANCHENKO", "Maksym FILIPOV"],
-        points: 92,
+        points: 93,
         wins: 1,
         podiums: 2
     },
