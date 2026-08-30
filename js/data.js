@@ -9,7 +9,7 @@ const drivers = [
     { name: "Yaroslav MURCHIK", team: "Red Bull Racing", number: "76", country: "🇺🇦", points: 52, wins: 0, poles: 0, races: 5, dnf: 0, podiums: 1, pp: 0 },
     { name: "Yaroslav LOBODA", team: "Alpine", number: "10", country: "🇺🇦", points: 119, wins: 1, poles: 0, races: 11, dnf: 3, podiums: 6, pp: 0 },
     { name: "Yaroslav PANKRATOV", team: "Alpine", number: "15", country: "🇺🇦", points: 105, wins: 0, poles: 0, races: 11, dnf: 3, podiums: 8, pp: 0 },
-    { name: "Yulian HULYK", team: "Aston Martin", number: "85", country: "🇺🇦", points: 164, wins: 7, poles: 10, races: 10, dnf: 1, podiums: 8, pp: 0 },
+    { name: "Yulian HULYK", team: "Aston Martin", number: "85", country: "🇺🇦", points: 166, wins: 7, poles: 10, races: 10, dnf: 1, podiums: 8, pp: 0 },
     { name: "Olexandr SOPOTYAK", team: "Aston Martin", number: "28", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 1, dnf: 0, podiums: 0, pp: 2 },
     { name: "Dmytro SHOLOPKO", team: "Racing Bulls", number: "68", country: "🇺🇦", points: 7, wins: 0, poles: 0, races: 8, dnf: 3, podiums: 0, pp: 2 },
     { name: "Nazarii PETRIV", team: "Racing Bulls", number: "39", country: "🇺🇦", points: 2, wins: 0, poles: 0, races: 3, dnf: 2, podiums: 0, pp: 6 },
@@ -275,7 +275,7 @@ const raceResults = [
             ],
             race: [
                 { pos: 1, number: "65", name: "Vladyslav POROSHENKO", team: "McLaren", time: "94:19.637", gap: "LEADER", points: 26 },
-                { pos: 2, number: "85", name: "Yulian HULYK", team: "Aston Martin", time: "+1.408s", gap: "-", points: 18 },
+                { pos: 2, number: "85", name: "Yulian HULYK", team: "Aston Martin", time: "+1.408s", gap: "-", points: 19 },
                 { pos: 3, number: "10", name: "Yaroslav LOBODA", team: "Alpine", time: "+11.989s", gap: "-", points: 15 },
                 { pos: 4, number: "82", name: "Hlib BRATUS", team: "Alpine", time: "+14.483s", gap: "-", points: 12 },
                 { pos: 5, number: "29", name: "Nazar SHTEFANIUK", team: "Williams", time: "+17.723s", gap: "-", points: 10 },
@@ -464,7 +464,7 @@ const raceResults = [
                 { pos: 9, number: "40", name: "Volodymyr SHAKULA", team: "Kick Sauber", time: "+1 laps", gap: "-", points: 2 },
                 { pos: 10, number: "24", name: "Stanislav KRICHFALOVSKYI", team: "Kick Sauber", time: "+1 lap", gap: "-", points: 0 },
                 { pos: 11, number: "14", name: "Bohdan VOSKOBIINYK", team: "Aston Martin", time: "+2 lap", gap: "-", points: 0 },
-                { pos: 12, number: "85", name: "Yulian HULYK", team: "Aston Martin", time: "DNF", gap: "-", points: 0 },
+                { pos: 12, number: "85", name: "Yulian HULYK", team: "Aston Martin", time: "DNF", gap: "-", points: 1 },
 
            ]
         }
