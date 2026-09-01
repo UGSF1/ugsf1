@@ -131,6 +131,115 @@ const calendar = [
     { round: 12, country: "Abu Dhabi", flag: "🇦🇪", track: "Yas Island", date: "18 SEP", status: "Upcoming", hasSprint: false }
 ];
 
+// Рекорди сезону та ліги
+const records = [
+    { 
+        type: "season",
+        category: "Most Wins", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "7 wins", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🏆" 
+    },
+    { 
+        type: "season",
+        category: "Most Poles Position", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "10 poles", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "⏱️" 
+    },
+    { 
+        type: "season",
+        category: "Most Podiums", 
+        holder: "Yaroslav PANKRATOV / Yulian HULYK", 
+        team: "Alpine / Aston Martin", 
+        value: "8 podiums", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🥇" 
+    },
+    { 
+        type: "season",
+        category: "Most Points (Driver)", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "166 pts", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "📊" 
+    },
+    { 
+        type: "season",
+        category: "Most Points (Team)", 
+        holder: "Alpine", 
+        team: "Alpine", 
+        value: "224 pts", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🏎️" 
+    },
+    { 
+        type: "season",
+        category: "Most Penalty Points", 
+        holder: "Oleh LIASHKO", 
+        team: "McLaren", 
+        value: "30 PP", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "⚠️" 
+    },
+
+    { 
+        type: "season",
+        category: "Most Consecutive Wins", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "4 wins", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🔥" 
+    },
+
+    { 
+        type: "season",
+        category: "Most Consecutive Podiums", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "6 podiums", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🥇" 
+    },
+
+{ 
+        type: "season",
+        category: "Most Pole-to-Win Races", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "6 wins", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "⚡" 
+    },
+
+    // Рекорди за весь час (All-Time)
+    { 
+        type: "alltime",
+        category: "Most Wins", 
+        holder: "Yulian HULYK", 
+        team: "Aston Martin", 
+        value: "7 wins", 
+        track: "Season 1 Overall",
+        stage: "Season 1",
+        icon: "🏆" 
+    }
+];
+
 // Результати за сесіями
 const raceResults = [
     {

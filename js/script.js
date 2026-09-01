@@ -600,4 +600,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateTable();
     }
+
+    // --- 4. ГЕНЕРАЦІЯ ТАБЛИЦІ РЕКОРДІВ (RECORD BOARD) ---
+    const recordsTableBody = document.getElementById("records-table-body");
+    const recordTypeSelect = document.getElementById("record-type-select");
+
+    if (recordsTableBody && typeof records !== "undefined") {
+        function renderRecords(filterType = "season") {
+            const filteredRecords = records.filter(r => r.type === filterType || !r.type);
+
+            if (filteredRecords.length === 0) {
+                recordsTableBody.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 20px;">
+                            Рекорди у цій категорії відсутні.
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            recordsTableBody.innerHTML = filteredRecords.map(rec => `
+                <tr>
+                    <td><strong>${rec.icon || ''} ${rec.category}</strong></td>
+                    <td>
+                        <div class="driver-name-cell">
+                            <span>${rec.holder}</span>
+                            ${rec.team ? `<small style="display:block; opacity:0.7;">${rec.team}</small>` : ''}
+                        </div>
+                    </td>
+                    <td class="pts-cell">${rec.value}</td>
+                    <td>${rec.track || '—'}</td>
+                    <td>${rec.stage || '—'}</td>
+                </tr>
+            `).join("");
+        }
+
+        renderRecords(recordTypeSelect ? recordTypeSelect.value : "season");
+
+        if (recordTypeSelect) {
+            recordTypeSelect.addEventListener("change", (e) => {
+                renderRecords(e.target.value);
+            });
+        }
+    }
 });

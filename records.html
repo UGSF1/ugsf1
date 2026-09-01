@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UGS F1 | Record Board</title>
+
+    <!-- Фавіконка сайту -->
+    <link rel="icon" type="image/png" href="favicon.png?v=1">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
+        </div>
+        <div class="subtitle">
+            Ukrainian Grand Series
+        </div>
+        <div class="season">
+            Season 1 ▼
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="teams.html">Teams</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="standings.html">Standings</a>
+        <a href="records.html" class="active">Record Board</a>
+    </nav>
+
+    <section class="page-container">
+        
+        <h1>LEAGUE <span>RECORD BOARD</span></h1>
+
+        <!-- Випадаючий список вибору категорії рекордів -->
+        <div class="standings-header">
+            <div class="filter-controls">
+                <div class="select-group">
+                    <label for="record-type-select">Category:</label>
+                    <select id="record-type-select" class="stage-dropdown">
+                        <option value="season">Records of the Season</option>
+                        <option value="alltime">All-Time Records</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Таблиця рекордів -->
+        <div class="table-responsive">
+            <table class="standings-table">
+                <thead>
+                    <tr>
+                        <th>Record</th>
+                        <th>Driver</th>
+                        <th>Value / Time</th>
+                        <th>Track / Grand Prix</th>
+                        <th>Stage</th>
+                    </tr>
+                </thead>
+                <tbody id="records-table-body">
+                    <!-- Заповнюється через script.js -->
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
