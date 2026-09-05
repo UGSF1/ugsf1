@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News of Championship — UGS Formula 1 League</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
+        </div>
+        <div class="subtitle">
+            Ukrainian Grand Series
+        </div>
+        <div class="season">
+            Season 1 ▼
+        </div>
+    </header>
+
+    <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="news.html" class="active">News</a>
+        <a href="teams.html">Teams</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="standings.html">Standings</a>
+        <a href="records.html">Record Board</a>
+    </nav>
+
+    <div class="page-container">
+        <h1>NEWS <span>OF THE CHAMPIONSHIP</span></h1>
+
+        <!-- Сітка новин -->
+        <div class="news-grid">
+            
+            <!-- НОВИНА 1: Дострокове чемпіонство (Нова) -->
+            <article class="news-card clickable-card" onclick="openNewsModal('championModal')">
+                <div class="news-media-portrait">
+                    <img src="images/news/champion-yulian.png" alt="Yulian HULYK Champion">
+                    <span class="news-badge">Championship • Season 1</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">5 Вересня 2026 | World Champion</div>
+                    <h2 class="news-title">🏆 YULIAN HULYK — ДОСТРОКОВИЙ ЧЕМПІОН ПЕРШОГО СЕЗОНУ UGS F1!</h2>
+                    <span class="read-more-btn">Читати далі →</span>
+                </div>
+            </article>
+
+            <!-- НОВИНА 2: Гран-прі Маямі -->
+            <article class="news-card clickable-card" onclick="openNewsModal('miamiModal')">
+                <div class="news-media-portrait">
+                    <img src="images/news/miami-gp-card.png" alt="Гран-прі Маямі">
+                    <span class="news-badge">Stage 10 • Miami, USA</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">3–4 Вересня 2026 | Sprint Weekend</div>
+                    <h2 class="news-title">🇺🇸 MIAMI GP: HULYK ДОМІНУЄ, BRATUS ПРИНОСИТЬ HAAS ПЕРШИЙ ПОДІУМ СЕЗОНУ</h2>
+                    <span class="read-more-btn">Читати далі →</span>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО 1: Чемпіонство Yulian HULYK -->
+    <div id="championModal" class="news-modal-overlay">
+        <div class="news-modal-content">
+            <button class="news-modal-close" onclick="closeNewsModal('championModal')">&times;</button>
+            
+            <div class="news-modal-header">
+                <span class="news-badge">Championship • Season 1</span>
+                <div class="news-date" style="margin-top: 10px;">5 Вересня 2026 | World Champion</div>
+                <h1 class="modal-article-title">🏆 YULIAN HULYK — ДОСТРОКОВИЙ ЧЕМПІОН ПЕРШОГО СЕЗОНУ UGS F1!</h1>
+            </div>
+
+            <div class="news-modal-body">
+                <img src="images/news/champion-yulian.png" alt="Yulian HULYK Champion" class="news-modal-banner">
+
+                <p><strong>UGS F1 | Season 1 | 200 очок | Чемпіонство оформлено після 10-го етапу</strong></p>
+
+                <p>Перший сезон UGS F1 офіційно отримав свого чемпіона ще до завершення чемпіонату. Після десятого етапу сезону, який відбувся в Маямі, <strong>Yulian HULYK</strong> достроково гарантував собі перше місце в особистому заліку та став першим чемпіоном в історії UGS F1.</p>
+
+                <p>На рахунку пілота вже 200 очок, і цього результату достатньо, щоб математично гарантувати собі чемпіонський титул незалежно від результатів двох заключних етапів сезону. Таким чином, навіть якщо суперники максимально успішно проведуть фінальну частину чемпіонату, наздогнати HULYK у боротьбі за перше місце вже неможливо.</p>
+
+                <hr>
+
+                <h3>👑 ІСТОРИЧНИЙ ТИТУЛ</h3>
+                <p>Чемпіонство Yulian HULYK стало особливо важливою подією для UGS F1, адже саме він вписав своє ім'я в історію як перший чемпіон першого сезону української гоночної серії.</p>
+
+                <p>Протягом сезону HULYK демонстрував стабільно високий темп та регулярно претендував на найвищі позиції. Одним із ключових моментів чемпіонату став саме десятий етап у Маямі.</p>
+
+                <p>На американському етапі пілот не залишив суперникам шансів у боротьбі за головний результат: здобув Pole Position, переміг у 57-коловій гонці та встановив Fastest Lap із результатом 1:27.503. Перемога в Маямі стала черговим кроком до чемпіонства, а після завершення етапу стало офіційно зрозуміло — перше місце в сезоні вже нікому не дістати.</p>
+
+                <p><strong>200 очок. 10 етапів позаду. Чемпіонство гарантовано.</strong></p>
+
+                <hr>
+
+                <h3>🏁 АЛЕ СЕЗОН ЩЕ НЕ ЗАВЕРШЕНО</h3>
+                <p>Попри дострокове визначення чемпіона, сезон UGS F1 продовжиться. Попереду ще два етапи — одинадцятий у Катарі та фінальний, дванадцятий, в Абу-Дабі.</p>
+
+                <p>Це означає, що боротьба в чемпіонаті ще далеко не завершена. Якщо перше місце вже має свого володаря, то позиції позаду HULYK залишаються предметом боротьби. Кожне очко на двох фінальних етапах може вплинути на підсумкове розташування пілотів у чемпіонаті, боротьбу за подіуми сезону та командний залік.</p>
+
+                <p>А сам HULYK отримує унікальну можливість провести заключні два етапи вже без чемпіонського тиску.</p>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;"><strong>Вітаємо першого чемпіона в історії UGS F1! 🏆👑🏎️</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО 2: Miami GP -->
+    <div id="miamiModal" class="news-modal-overlay">
+        <div class="news-modal-content">
+            <button class="news-modal-close" onclick="closeNewsModal('miamiModal')">&times;</button>
+            
+            <div class="news-modal-header">
+                <span class="news-badge">Етап 10 • Miami, USA</span>
+                <div class="news-date" style="margin-top: 10px;">3–4 Вересня 2026 | Sprint Weekend</div>
+                <h1 class="modal-article-title">🇺🇸 MIAMI GP: HULYK ДОМІНУЄ, BRATUS ПРИНОСИТЬ HAAS ПЕРШИЙ ПОДІУМ СЕЗОНУ</h1>
+            </div>
+
+            <div class="news-modal-body">
+                <img src="images/news/miami-gp.png" alt="Гран-прі Маямі" class="news-modal-banner">
+
+                <p>Десятий етап сезону UGS F1 завершився в американському Маямі, подарувавши вболівальникам насичений гоночний вікенд із боротьбою за позиції, яскравими обгонами, численними інцидентами та важливими рішеннями стюардів. За сонячної погоди пілоти вийшли на старт основної гонки, яка складалася з 57 кіл, а головною дійовою особою американського етапу став <strong>Yulian HULYK</strong>.</p>
+
+                <p>Пілот Aston Martin провів практично ідеальний вікенд. HULYK розпочав основну гонку з Pole Position, здобутої з результатом <strong>1:25.533</strong>, а вже за 57 кіл перетворив старт із першої позиції на впевнену перемогу. Додатково пілот встановив найшвидше коло гонки — <strong>1:27.503</strong>, таким чином забравши одразу всі три ключові досягнення етапу: Pole Position, перемогу та Fastest Lap.</p>
+
+                <p>Ще до старту основної гонки стало зрозуміло, що боротьба в Маямі буде надзвичайно щільною. HULYK випередив другого пілота кваліфікації, Yaroslav LOBODA з Alpine, на 0.469 секунди. Третім став ще один представник Alpine — Yaroslav PANKRATOV, який поступився лідеру 0.651 секунди. При цьому різниця між першим та десятим місцем склала лише 1.663 секунди, що вкотре продемонструвало високий рівень конкуренції в пелотоні UGS F1.</p>
+
+                <p>У самій гонці HULYK із самого початку отримав можливість контролювати ситуацію попереду. Aston Martin поступово створив комфортний відрив, тоді як основна боротьба перемістилася за місця позаду лідера. Volodymyr SHAKULA на Kick Sauber зміг провести стабільний заїзд і посів друге місце, завершивши гонку за 14.268 секунди позаду переможця.</p>
+
+                <p>Однак головною сенсацією подіуму став <strong>Hlib BRATUS</strong>. Пілот Haas F1 Team фінішував третім із відставанням 15.293 секунди, принісши своїй команді перший подіум у сезоні UGS F1. Для Haas цей результат став особливо важливим, адже команда нарешті змогла піднятися на подіум на десятому етапі чемпіонату. BRATUS провів стабільну гонку та скористався можливістю поборотися за топ-3 до самого фінішу.</p>
+
+                <p>Четвертим фінішував Yevhenii PANCHENKO на Mercedes. Alpine після сильної кваліфікації також зуміла завершити гонку двома болідами в першій шістці: Yaroslav LOBODA посів п'яте місце, а Yaroslav PANKRATOV — шосте. Далі фінішували Rostyslav PYLYAK на Ferrari, Stanislav MARCHENKO на Haas, Ivan KOBRYN на McLaren та Maksym KHODAKIVSKYI на Williams.</p>
+
+                <hr>
+
+                <h3>Розслідування та рішення стюардів</h3>
+                <p>Поки на вершині пелотону HULYK впевнено контролював гонку, в інших групах боротьба була значно напруженішою. Це призвело до кількох інцидентів, які після фінішу довелося розглянути стюардам.</p>
+
+                <p>Одним із найбільш помітних учасників розглядів став <strong>Nazarii PETRIV</strong> із Racing Bulls. Уже на першому колі під час боротьби перед першим поворотом пілот спробував випередити Haas. У процесі проходження повороту Racing Bulls здійснив різку зміну траєкторії, після чого відбувся контакт. Haas влучив у заднє колесо Racing Bulls, а його переднє антикрило отримало пошкодження. Стюарди встановили, що PETRIV не залишив супернику достатньо безпечного простору для проходження повороту. За цей епізод пілот Racing Bulls отримав <strong>+10 секунд та 1 Penalty Point</strong>.</p>
+
+                <p>Для PETRIV проблеми на цьому не завершилися. У 17-му повороті відбувся ще один серйозний контакт — цього разу з Kick Sauber. Пілот Racing Bulls не розрахував точку гальмування та допустив сильне зіткнення. Унаслідок контакту болід Kick Sauber отримав значне пошкодження переднього антикрила, що негативно вплинуло на його подальший темп. Стюарди визнали, що PETRIV не забезпечив належного контролю над болідом під час гальмування та безпосередньо спричинив зіткнення. Покаранням стали <strong>+30 секунд та 3 Penalty Points</strong>.</p>
+
+                <p>Таким чином, лише за два окремі гоночні епізоди PETRIV отримав загалом <strong>+40 секунд та 4 Penalty Points</strong>.</p>
+
+                <p>Водночас не кожен контакт на трасі завершувався покаранням. На першому колі у третьому повороті пілот Williams, рухаючись позаду Racing Bulls, незначно не розрахував гальмівний шлях та допустив легкий контакт. Проте ситуація не призвела до серйозних наслідків: жоден із болідів не отримав пошкоджень, не було розвороту або суттєвої втрати позицій. Після розгляду епізоду стюарди не знайшли достатніх підстав для санкції та класифікували ситуацію як <em>Racing Incident</em>.</p>
+
+                <p>Ще один серйозний епізод стався на 20-му колі у 14-му повороті. Пілот Mercedes Maksym FILIPOV здійснював атаку на Williams, намагаючись пройти між Williams та Racing Bulls. Під час виконання маневру Mercedes не розрахував гальмування та допустив контакт із Racing Bulls. У результаті болід Racing Bulls було розвернуто, а його переднє антикрило отримало пошкодження. Стюарди встановили, що FILIPOV не забезпечив безпечного виконання атаки та не врахував присутність іншого боліда на траєкторії. Рішенням стюардів стали <strong>+10 секунд та 1 Penalty Point</strong> для пілота Mercedes.</p>
+
+                <p>Окремо після гонки було розглянуто ситуацію із синіми прапорами за участю Racing Bulls. На останній прямій перед фінішним поворотом Nazarii PETRIV, перебуваючи в статусі колового, пропустив швидших пілотів, які наближалися позаду. Попри це, ігрова система автоматично видала Racing Bulls +10 секунд за порушення правил синіх прапорів. Після перегляду епізоду стюарди встановили, що PETRIV своечасно пропустив швидші боліди, не перешкоджав їхньому руху та не здійснював небезпечних маневрів. У зв'язку з цим автоматичний штраф було скасовано, а результат пілота залишився без змін з урахуванням скасування санкції.</p>
+
+                <p>Ще один спірний момент стався на першому повороті за участю пілота Alpine. Рухаючись позаду Aston Martin, він залишив межі траси та зрізав поворот, пояснюючи маневр необхідністю уникнути можливого контакту. Однак після перегляду ситуації стюарди встановили, що між болідами залишалося достатньо простору для безпечного гальмування та проходження повороту в межах траси. Ознак неминучого зіткнення, яке змусило б Alpine залишити трасу, встановлено не було. У результаті попередження пілоту Alpine залишилося чинним.</p>
+
+                <hr>
+
+                <h3>Підсумки та Driver of the Day</h3>
+                <p>Попри насичену роботу стюардів, головна історія Miami GP залишилася незмінною — домінування Yulian HULYK. Пілот Aston Martin завершив 57-колову гонку з результатом <strong>1:31:17.644</strong>, випередивши SHAKULA на 14.268 секунди та BRATUS на 15.293 секунди. Для HULYK це був повний комплект досягнень на одному етапі: Pole Position, перемога та найшвидше коло.</p>
+
+                <p>За підсумками гонки четвертим став Yevhenii PANCHENKO, п'ятим — Yaroslav LOBODA, шостим — Yaroslav PANKRATOV. Rostyslav PYLYAK завершив гонку сьомим, Stanislav MARCHENKO — восьмим, а Ivan KOBRYN — дев'ятим. Десяту позицію посів Maksym KHODAKIVSKYI, відставши на одне коло.</p>
+
+                <p>Позаду нього фінішували Nazarii PETRIV, Volodymyr MYKHALYUK, Maksym MYKHLYK та Oleksii FEDOTOV. Чотири пілоти не змогли дістатися фінішу: Maksym FILIPOV, Mykhailo ILLIUK, Yaroslav MURCHIK, Stanislav KRICHFALOVSKYI та Olexandr SOPOTYAK завершили етап зі статусом <strong>DNF</strong>.</p>
+
+                <p>Попри два отримані покарання, саме <strong>Nazarii PETRIV</strong> був обраний <strong>Driver of the Day</strong>. Пілот Racing Bulls став одним із найбільш помітних учасників етапу, опинившись у центрі одразу кількох гоночних ситуацій та продемонструвавши активну боротьбу протягом дистанції.</p>
+
+                <p>Таким чином, Miami GP став одним із найбільш насичених етапів сезону UGS F1. Yulian HULYK продемонстрував абсолютну перевагу та забрав перемогу, Pole Position і Fastest Lap, Volodymyr SHAKULA піднявся на другу сходинку, а Hlib BRATUS приніс Haas F1 Team довгоочікуваний перший подіум сезону.</p>
+
+                <p>Десятий етап завершено, але чемпіонат UGS F1 наближається до своєї вирішальної частини. Попереду ще більше боротьби, а кожне очко стає дедалі важливішим.</p>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;"><strong>Маямі залишилося позаду. Наступний етап — попереду. 🏎️🔥</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипт відкриття/закриття модальних вікон -->
+    <script>
+        function openNewsModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeNewsModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('news-modal-overlay')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
