@@ -139,7 +139,7 @@ const records = [
         category: "Most Wins", 
         holder: "Yulian HULYK", 
         team: "Aston Martin", 
-        value: "8 wins", 
+        value: "9 wins", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "🏆" 
@@ -387,7 +387,7 @@ const raceResults = [
                 { pos: 1, number: "65", name: "Vladyslav POROSHENKO", team: "McLaren", time: "94:19.637", gap: "LEADER", points: 26 },
                 { pos: 2, number: "85", name: "Yulian HULYK", team: "Aston Martin", time: "+1.408s", gap: "-", points: 19 },
                 { pos: 3, number: "10", name: "Yaroslav LOBODA", team: "Alpine", time: "+11.989s", gap: "-", points: 15 },
-                { pos: 4, number: "82", name: "Hlib BRATUS", team: "Alpine", time: "+14.483s", gap: "-", points: 12 },
+                { pos: 4, number: "82", name: "Hlib BRATUS", team: "Haas F1 Team", time: "+14.483s", gap: "-", points: 12 },
                 { pos: 5, number: "29", name: "Nazar SHTEFANIUK", team: "Williams", time: "+17.723s", gap: "-", points: 10 },
                 { pos: 6, number: "40", name: "Volodymyr SHAKULA", team: "Kick Sauber", time: "+22.442s", gap: "-", points: 8 },
                 { pos: 7, number: "22", name: "Yevhenii PANCHENKO", team: "Mercedes", time: "+34.780s", gap: "-", points: 6 },
