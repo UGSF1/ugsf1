@@ -1,24 +1,24 @@
 const drivers = [
-    { name: "Yevhenii PANCHENKO", team: "Mercedes", number: "22", image: "drivers/22.png", country: "🇺🇦", points: 99, wins: 1, poles: 0, races: 11, dnf: 2, podiums: 2, pp: 1 },
+    { name: "Yevhenii PANCHENKO", team: "Mercedes", number: "22", image: "drivers/22.png", country: "🇺🇦", points: 114, wins: 1, poles: 0, races: 12, dnf: 2, podiums: 3, pp: 1 },
     { name: "Maksym FILIPOV", team: "Mercedes", number: "52", country: "🇺🇦", points: 6, wins: 0, poles: 0, races: 9, dnf: 3, podiums: 0, pp: 3 },
     { name: "Maksym KHODAKIVSKYI", team: "Williams", number: "88", country: "🇺🇦", points: 1, wins: 0, poles: 0, races: 4, dnf: 2, podiums: 0, pp: 0 },
     { name: "Mykhailo ILLIUK", team: "Williams", number: "18", country: "🇺🇦", points: 23, wins: 0, poles: 0, races: 11, dnf: 4, podiums: 0, pp: 1 },
-    { name: "Rostyslav PYLIAK", team: "Ferrari", number: "59", country: "🇺🇦", points: 53, wins: 0, poles: 0, races: 11, dnf: 2, podiums: 0, pp: 2 },
-    { name: "Maksym MYKHLYK", team: "Ferrari", number: "27", country: "🇺🇦", points: 3, wins: 0, poles: 0, races: 9, dnf: 1, podiums: 0, pp: 10 },
-    { name: "Volodymyr MYKHALYUK", team: "Red Bull Racing", number: "69", country: "🇺🇦", points: 58, wins: 0, poles: 0, races: 13, dnf: 0, podiums: 0, pp: 1 },
+    { name: "Rostyslav PYLIAK", team: "Ferrari", number: "59", country: "🇺🇦", points: 55, wins: 0, poles: 0, races: 12, dnf: 2, podiums: 0, pp: 2 },
+    { name: "Maksym MYKHLYK", team: "Ferrari", number: "27", country: "🇺🇦", points: 3, wins: 0, poles: 0, races: 10, dnf: 1, podiums: 0, pp: 10 },
+    { name: "Volodymyr MYKHALYUK", team: "Red Bull Racing", number: "69", country: "🇺🇦", points: 64, wins: 0, poles: 0, races: 14, dnf: 0, podiums: 0, pp: 1 },
     { name: "Yaroslav MURCHIK", team: "Red Bull Racing", number: "76", country: "🇺🇦", points: 52, wins: 0, poles: 0, races: 6, dnf: 1, podiums: 1, pp: 0 },
-    { name: "Yaroslav LOBODA", team: "Alpine", number: "10", country: "🇺🇦", points: 131, wins: 1, poles: 0, races: 13, dnf: 3, podiums: 6, pp: 0 },
-    { name: "Yaroslav PANKRATOV", team: "Alpine", number: "15", country: "🇺🇦", points: 120, wins: 0, poles: 0, races: 13, dnf: 3, podiums: 9, pp: 0 },
+    { name: "Yaroslav LOBODA", team: "Alpine", number: "10", country: "🇺🇦", points: 149, wins: 1, poles: 0, races: 14, dnf: 3, podiums: 7, pp: 0 },
+    { name: "Yaroslav PANKRATOV", team: "Alpine", number: "15", country: "🇺🇦", points: 146, wins: 1, poles: 1, races: 14, dnf: 3, podiums: 10, pp: 0 },
     { name: "Yulian HULYK", team: "Aston Martin", number: "85", country: "🇺🇦", points: 200, wins: 9, poles: 12, races: 12, dnf: 1, podiums: 10, pp: 0 },
     { name: "Olexandr SOPOTYAK", team: "Aston Martin", number: "28", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 2, dnf: 1, podiums: 0, pp: 2 },
     { name: "Dmytro SHOLOPKO", team: "Racing Bulls", number: "68", country: "🇺🇦", points: 7, wins: 0, poles: 0, races: 9, dnf: 4, podiums: 0, pp: 2 },
-    { name: "Nazarii PETRIV", team: "Racing Bulls", number: "39", country: "🇺🇦", points: 2, wins: 0, poles: 0, races: 5, dnf: 2, podiums: 0, pp: 10 },
-    { name: "Hlib BRATUS", team: "Haas F1 Team", number: "82", country: "🇺🇦", points: 49, wins: 0, poles: 0, races: 6, dnf: 0, podiums: 1, pp: 0 },
-    { name: "Stanislav MARCHENKO", team: "Haas F1 Team", number: "87", country: "🇺🇦", points: 33, wins: 0, poles: 0, races: 8, dnf: 2, podiums: 0, pp: 0 },
+    { name: "Nazarii PETRIV", team: "Racing Bulls", number: "39", country: "🇺🇦", points: 8, wins: 0, poles: 0, races: 6, dnf: 2, podiums: 0, pp: 10 },
+    { name: "Hlib BRATUS", team: "Haas F1 Team", number: "82", country: "🇺🇦", points: 59, wins: 0, poles: 0, races: 7, dnf: 0, podiums: 1, pp: 0 },
+    { name: "Stanislav MARCHENKO", team: "Haas F1 Team", number: "87", country: "🇺🇦", points: 37, wins: 0, poles: 0, races: 9, dnf: 2, podiums: 0, pp: 0 },
     { name: "Oleh LIASHKO", team: "McLaren", number: "91", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 4, dnf: 4, podiums: 0, pp: 30 },
-    { name: "Ivan KOBRYN", team: "McLaren", number: "23", country: "🇺🇦", points: 9, wins: 0, poles: 0, races: 5, dnf: 1, podiums: 0, pp: 0 },
-    { name: "Volodymyr SHAKULA", team: "Kick Sauber", number: "40", country: "🇺🇦", points: 118, wins: 0, poles: 0, races: 13, dnf: 1, podiums: 7, pp: 6 },
-    { name: "Stanislav KRICHFALOVSKYI", team: "Kick Sauber", number: "24", country: "🇺🇦", points: 2, wins: 0, poles: 0, races: 9, dnf: 2, podiums: 0, pp: 1 },
+    { name: "Ivan KOBRYN", team: "McLaren", number: "23", country: "🇺🇦", points: 10, wins: 0, poles: 0, races: 5, dnf: 1, podiums: 0, pp: 0 },
+    { name: "Volodymyr SHAKULA", team: "Kick Sauber", number: "40", country: "🇺🇦", points: 130, wins: 0, poles: 0, races: 14, dnf: 1, podiums: 7, pp: 6 },
+    { name: "Stanislav KRICHFALOVSKYI", team: "Kick Sauber", number: "24", country: "🇺🇦", points: 2, wins: 0, poles: 0, races: 10, dnf: 3, podiums: 0, pp: 1 },
     
     // Reserve Drivers
     { name: "Denys ZABARNYI", team: "Reserve", number: "64", country: "🇺🇦", points: 13, wins: 0, poles: 1, races: 0, dnf: 0, podiums: 0, pp: 0 },
@@ -41,23 +41,24 @@ const drivers = [
     { name: "Olexandr KORZHOVSKYI", team: "Reserve", number: "06", country: "🇺🇦", points: 18, wins: 0, poles: 0, races: 1, dnf: 0, podiums: 1, pp: 0 },
     { name: "Nazar SHTEFANIUK", team: "Reserve", number: "29", country: "🇺🇦", points: 35, wins: 1, poles: 0, races: 3, dnf: 0, podiums: 1, pp: 0 },
     { name: "Maks ZHUK", team: "Reserve", number: "03", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 1, dnf: 0, podiums: 0, pp: 0 },
-    { name: "Oleksiy FEDOTOV", team: "Reserve", number: "45", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 2, dnf: 1, podiums: 0, pp: 0 },
+    { name: "Oleksiy FEDOTOV", team: "Reserve", number: "45", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 3, dnf: 2, podiums: 0, pp: 0 },
+    { name: "Fedir DAVYDOV", team: "Reserve", number: "20", country: "🇺🇦", points: 0, wins: 0, poles: 0, races: 1, dnf: 0, podiums: 0, pp: 0 },
 ];
 
 const teams = [
     { 
         name: "Alpine", 
         drivers: ["Yaroslav LOBODA", "Yaroslav PANKRATOV"],
-        points: 233, // Вкажіть актуальну суму очок
-        wins: 1,
-        podiums: 15
+        points: 277, // Вкажіть актуальну суму очок
+        wins: 2,
+        podiums: 17
     },
     { 
         name: "Aston Martin", 
         drivers: ["Yulian HULYK", "Olexandr SOPOTYAK"],
         points: 204,
-        wins: 8,
-        podiums: 9
+        wins: 9,
+        podiums: 10
     },
     { 
         name: "Williams", 
@@ -69,49 +70,49 @@ const teams = [
     { 
         name: "Kick Sauber", 
         drivers: ["Volodymyr SHAKULA", "Stanislav KRICHFALOVSKYI"],
-        points: 122,
+        points: 134,
         wins: 0,
         podiums: 7
     },
     { 
         name: "Ferrari", 
         drivers: ["Rostyslav PYLIAK", "Maksym MYKHLYK"],
-        points: 56,
+        points: 58,
         wins: 0,
         podiums: 0
     },
     { 
         name: "Red Bull Racing", 
         drivers: ["Volodymyr MYKHALYUK", "Yaroslav MURCHIK"],
-        points: 98,
+        points: 106,
         wins: 0,
         podiums: 1
     },
     { 
         name: "Mercedes", 
         drivers: ["Yevhenii PANCHENKO", "Maksym FILIPOV"],
-        points: 108,
+        points: 123,
         wins: 1,
-        podiums: 2
+        podiums: 3
     },
     { 
         name: "Racing Bulls", 
         drivers: ["Dmytro SHOLOPKO", "Nazarii PETRIV"],
-        points: 21,
+        points: 27,
         wins: 0,
         podiums: 0
     },
     { 
         name: "McLaren", 
         drivers: ["Oleh LIASHKO", "Ivan KOBRYN"],
-        points: 33,
+        points: 34,
         wins: 0,
         podiums: 0
     },
     { 
         name: "Haas F1 Team", 
         drivers: ["Hlib BRATUS", "Stanislav MARCHENKO"],
-        points: 101,
+        points: 115,
         wins: 0,
         podiums: 1
     }
@@ -149,7 +150,7 @@ const records = [
         category: "Most Poles Position", 
         holder: "Yulian HULYK", 
         team: "Aston Martin", 
-        value: "11 poles", 
+        value: "12 poles", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "⏱️" 
@@ -157,9 +158,9 @@ const records = [
     { 
         type: "season",
         category: "Most Podiums", 
-        holder: "Yulian HULYK", 
-        team: "Aston Martin", 
-        value: "9 podiums", 
+        holder: "Yulian HULYK, Yaroslav PANKRATOV", 
+        team: "Aston Martin, Alpine", 
+        value: "10 podiums", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "🥇" 
@@ -179,7 +180,7 @@ const records = [
         category: "Most Points (Team)", 
         holder: "Alpine", 
         team: "Alpine", 
-        value: "233 pts", 
+        value: "277 pts", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "🏎️" 
@@ -200,7 +201,7 @@ const records = [
         category: "Most Consecutive Wins", 
         holder: "Yulian HULYK", 
         team: "Aston Martin", 
-        value: "4 wins", 
+        value: "3 wins", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "🔥" 
@@ -211,7 +212,7 @@ const records = [
         category: "Most Consecutive Podiums", 
         holder: "Yulian HULYK", 
         team: "Aston Martin", 
-        value: "6 podiums", 
+        value: "5 podiums", 
         track: "Season 1 Overall",
         stage: "Season 1",
         icon: "🥇" 
@@ -802,6 +803,48 @@ const raceResults = [
                 
                 
             ]
+           }
+   },
+    {
+        round: 11,
+        country: "Qatar",
+        sessions: {
+            qualifying: [
+                { pos: 1, number: "15", name: "Yaroslav PANKRATOV", team: "Alpine", time: "1:20.936", gap: "LEADER" },
+                { pos: 2, number: "22", name: "Yevhenii PANCHENKO", team: "Mercedes", time: "1:21.681", gap: "+0.745" },
+                { pos: 3, number: "39", name: "Nazarii PETRIV", team: "Racing Bulls", time: "1:21.892", gap: "+0.956" },
+                { pos: 4, number: "87", name: "Stanislav MARCHENKO", team: "Haas F1 Team", time: "1:21.911", gap: "+0.975" },
+                { pos: 5, number: "10", name: "Yaroslav LOBODA", team: "Alpine", time: "1:22.009", gap: "+1.073" },
+                { pos: 6, number: "40", name: "Volodymyr SHAKULA", team: "Kick Sauber", time: "1:22.091", gap: "+1.155" },
+                { pos: 7, number: "82", name: "Hlib Bratus", team: "Haas F1 Team", time: "1:22.390", gap: "+1.454" },
+                { pos: 8, number: "69", name: "Volodymyr MYKHALYUK", team: "Red Bull Racing", time: "1:22.457", gap: "+1.521" },
+                { pos: 9, number: "23", name: "Ivan KOBRYN", team: "McLaren", time: "1:23.048", gap: "+2.112" },
+                { pos: 10, number: "20", name: "Fedir DAVYDOV", team: "Aston Martin", time: "1:23.300", gap: "+2.364" },
+                { pos: 11, number: "59", name: "Rostyslav PYLIAK", team: "Ferrari", time: "1:24.371", gap: "+3.435" },
+                { pos: 12, number: "27", name: "Maksym MYKHLYK", team: "Ferrari", time: "1:24.759", gap: "+3.823" },
+                { pos: 13, number: "45", name: "Oleksiy FEDOTOV", team: "Williams", time: "1:25.385", gap: "+4.449" },
+                { pos: 14, number: "24", name: "Stanislav KRICHFALOVSKYI", team: "Kick Sauber", time: "--:--.----", gap: "--:--.----" },
+
+
+  
+         
+            ],
+            race: [
+                { pos: 1, number: "15", name: "Yaroslav PANKRATOV", team: "Alpine", time: "83:06.161", gap: "LEADER", points: 26 },
+                { pos: 2, number: "10", name: "Yaroslav LOBODA", team: "Alpine", time: "+3.126", gap: "-", points: 18 },
+                { pos: 3, number: "22", name: "Yevhenii PANCHENKO", team: "Mercedes", time: "+4.577", gap: "-", points: 15 },
+                { pos: 4, number: "40", name: "Volodymyr SHAKULA", team: "Kick Sauber", time: "+7.174", gap: "-", points: 12 },
+                { pos: 5, number: "82", name: "Hlib Bratus", team: "Haas F1 Team", time: "+36.385", gap: "-", points: 10 },
+                { pos: 6, number: "69", name: "Volodymyr MYKHALYUK", team: "Red Bull Racing", time: "+52.239", gap: "-", points: 8 },
+                { pos: 7, number: "39", name: "Nazarii PETRIV", team: "Racing Bulls", time: "+1:07.576", gap: "-", points: 6 },
+                { pos: 8, number: "87", name: "Stanislav MARCHENKO", team: "Haas F1 Team", time: "+1:15.946", gap: "-", points: 4 },
+                { pos: 9, number: "59", name: "Rostyslav PYLIAK", team: "Ferrari", time: "+1 lap", gap: "-", points: 2 },
+                { pos: 10, number: "23", name: "Ivan KOBRYN", team: "McLaren", time: "+1 lap", gap: "-", points: 1 },
+                { pos: 11, number: "20", name: "Fedir DAVYDOV", team: "Aston Martin", time: "+1 lap", gap: "-", points: 0 },
+                { pos: 12, number: "27", name: "Maksym MYKHLYK", team: "Ferrari", time: "+2 lap", gap: "-", points: 0 },
+                { pos: 13, number: "45", name: "Oleksiy FEDOTOV", team: "Williams", time: "DNF", gap: "-", points: 0 },
+                { pos: 14, number: "24", name: "Stanislav KRICHFALOVSKYI", team: "Kick Sauber", time: "DNF", gap: "-", points: 0 }
+            ],
         }
     }
 ];

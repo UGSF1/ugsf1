@@ -17,6 +17,7 @@ body {
    ШАПКА (HEADER) ТА НАВІГАЦІЯ
    ========================================== */
 .header {
+    position: relative; /* Додано для позиціонування іконок відносно кутка шапки */
     text-align: center;
     padding: 40px 20px;
     background: #111111;
@@ -50,6 +51,33 @@ body {
     background: #e10600;
     border-radius: 5px;
     font-weight: bold;
+}
+
+/* Іконки соцмереж у правому верхньому кутку */
+.social-links-header {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 1000;
+}
+
+.social-header-icon {
+    width: 34px;        /* Збільшений розмір */
+    height: 34px;
+    object-fit: contain;
+    display: block;
+    /* Покращення чіткості та піксельного рендерингу */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-header-icon:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
 }
 
 .menu {
@@ -1141,6 +1169,17 @@ main {
    АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
    ========================================== */
 @media (max-width: 768px) {
+    .social-links-header {
+        top: 12px;
+        right: 12px;
+        gap: 10px;
+    }
+
+    .social-header-icon {
+        width: 24px;
+        height: 24px;
+    }
+
     .hero-container {
         min-height: 400px;
     }

@@ -9,6 +9,17 @@
 <body>
 
     <header class="header">
+        <div class="social-links-header">
+            <a href="https://discord.gg/" target="_blank">
+                <img src="logos/discord.png" alt="Discord" class="social-header-icon">
+            </a>
+            <a href="https://tiktok.com/" target="_blank">
+                <img src="logos/tiktok.png" alt="TikTok" class="social-header-icon">
+            </a>
+            <a href="https://twitch.tv/" target="_blank">
+                <img src="logos/twitch.png" alt="Twitch" class="social-header-icon">
+            </a>
+        </div>
         <div class="logo">
             <img src="logos/ugs-f1-logo.png" alt="UGS F1 Logo" class="header-logo">
         </div>
@@ -35,7 +46,46 @@
         <!-- Сітка новин -->
         <div class="news-grid">
             
-            <!-- НОВИНА 1: Дострокове чемпіонство (Нова) -->
+            <!-- НОВИНА 0: Анонс Гран-прі Абу-Дабі (Найновіша) -->
+            <article class="news-card clickable-card" onclick="openNewsModal('abuDhabiModal')">
+                <div class="news-media-portrait">
+                    <img src="images/news/abudhabi.png" alt="Гран-прі Абу-Дабі">
+                    <span class="news-badge">Upcoming Stage 12 • Abu Dhabi</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">13 Вересня 2026 | Season Finale</div>
+                    <h2 class="news-title">🇦🇪 АНОНС: ГРАН-ПРІ АБУ-ДАБІ — ФІНАЛЬНИЙ АКОРД ПЕРШОГО СЕЗОНУ UGS F1!</h2>
+                    <span class="read-more-btn">Читати далі →</span>
+                </div>
+            </article>
+
+            <!-- НОВИНА 1: Достроковий Кубок Конструкторів Alpine -->
+            <article class="news-card clickable-card" onclick="openNewsModal('alpineConstructorsModal')">
+                <div class="news-media-portrait">
+                    <img src="images/news/alpine-champions.png" alt="Alpine Constructors Champions">
+                    <span class="news-badge">Constructors' Cup • Season 1</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">13 Вересня 2026 | Championship News</div>
+                    <h2 class="news-title">🇫🇷 ALPINE — ЗДОБУВАЧІ КУБКА КОНСТРУКТОРІВ ПЕРШОГО СЕЗОНУ UGS F1!</h2>
+                    <span class="read-more-btn">Читати далі →</span>
+                </div>
+            </article>
+
+            <!-- НОВИНА 2: Гран-прі Катару -->
+            <article class="news-card clickable-card" onclick="openNewsModal('qatarModal')">
+                <div class="news-media-portrait">
+                    <img src="images/news/qatar-gp-card.png" alt="Гран-прі Катару">
+                    <span class="news-badge">Stage 11 • Qatar</span>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">13 Вересня 2026 | Race Weekend</div>
+                    <h2 class="news-title">🇶🇦 ГРАН-ПРІ КАТАРУ: PANKRATOV ПЕРЕМАГАЄ ПІСЛЯ НАПРУЖЕНОЇ БОРОТЬБИ ДО ОСТАННІХ КІЛ</h2>
+                    <span class="read-more-btn">Читати далі →</span>
+                </div>
+            </article>
+
+            <!-- НОВИНА 3: Дострокове чемпіонство -->
             <article class="news-card clickable-card" onclick="openNewsModal('championModal')">
                 <div class="news-media-portrait">
                     <img src="images/news/champion-yulian.png" alt="Yulian HULYK Champion">
@@ -48,7 +98,7 @@
                 </div>
             </article>
 
-            <!-- НОВИНА 2: Гран-прі Маямі -->
+            <!-- НОВИНА 4: Гран-прі Маямі -->
             <article class="news-card clickable-card" onclick="openNewsModal('miamiModal')">
                 <div class="news-media-portrait">
                     <img src="images/news/miami-gp-card.png" alt="Гран-прі Маямі">
@@ -64,7 +114,204 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНЕ ВІКНО 1: Чемпіонство Yulian HULYK -->
+    <!-- МОДАЛЬНЕ ВІКНО 0: Анонс Abu Dhabi GP -->
+    <div id="abuDhabiModal" class="news-modal-overlay">
+        <div class="news-modal-content">
+            <button class="news-modal-close" onclick="closeNewsModal('abuDhabiModal')">&times;</button>
+            
+            <div class="news-modal-header">
+                <span class="news-badge">Анонс Етапу 12 • Abu Dhabi</span>
+                <div class="news-date" style="margin-top: 10px;">19 Вересня 2026 | Старт о 20:30</div>
+                <h1 class="modal-article-title">🇦🇪 ГРАН-ПРІ АБУ-ДАБІ: ВЕЛИКИЙ ФІНАЛ СЕЗОНУ НА ТРАСІ YAS MARINA CIRCUIT</h1>
+            </div>
+
+            <div class="news-modal-body">
+                <img src="images/news/abudhabi.png" alt="Гран-прі Абу-Дабі" class="news-modal-banner">
+
+                <p>Вже цієї суботи, <strong>19 вересня 2026 року</strong>, відбудеться довгоочікуваний фінальний 12-й етап першого сезону UGS F1. Гоночний вікенд пройде на легендарній автодромі <strong>Yas Marina Circuit</strong> в Абу-Дабі під сяйвом нічних софітів.</p>
+
+                <p>⏰ <strong>Час початку трансляції та старту: 20:30 за київським часом.</strong></p>
+
+                <hr>
+
+                <h3>🏁 Головні інтриги фіналу</h3>
+                <p>Хоча достроковим чемпіоном в особистому заліку став <strong>Yulian HULYK</strong>, а Кубок конструкторів забрала команда <strong>Alpine</strong>, грандіозна розв'язка сезону ще попереду!</p>
+
+                <p>Уся увага буде прикута до жорсткої боротьби за бронзу в Кубку конструкторів між Kick Sauber, Mercedes та Haas F1 Team. Окрім того, пілоти змагатимуться за підсумкові місця у топ-5 особистого заліку, де кожне залікове очко має вирішальне значення.</p>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;"><strong>Не пропустіть вирішальну гонку року! Приєднуйтесь до трансляції 19 вересня о 20:30! 🏁🏎️✨</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО 1: Alpine Constructors Champions -->
+    <div id="alpineConstructorsModal" class="news-modal-overlay">
+        <div class="news-modal-content">
+            <button class="news-modal-close" onclick="closeNewsModal('alpineConstructorsModal')">&times;</button>
+            
+            <div class="news-modal-header">
+                <span class="news-badge">Constructors' Cup • Season 1</span>
+                <div class="news-date" style="margin-top: 10px;">11 Вересня 2026 | Championship News</div>
+                <h1 class="modal-article-title">🇫🇷 ALPINE — ВОЛОДАРІ КУБКА КОНСТРУКТОРІВ ПЕРШОГО СЕЗОНУ UGS F1!</h1>
+            </div>
+
+            <div class="news-modal-body">
+                <img src="images/news/alpine-champions.png" alt="Alpine Constructors Champions" class="news-modal-banner">
+
+                <p>Попри те, що попереду на пілотів чекає ще фінальний 12-й етап у сонячному Абу-Дабі, дострокова розв'язка в Кубку конструкторів уже відбулася! Французька стайня <strong>Alpine</strong> офіційно гарантувала собі перше місце в командному заліку та виборює головний командний трофей першого сезону UGS F1.</p>
+
+                <p>Неймовірна стабільність та феноменальна командна робота двох дуетних пілотів — <strong>Yaroslav LOBODA</strong> та <strong>Yaroslav PANKRATOV</strong> — дозволили Alpine набрати астрономічні <strong>277 очок</strong> і піднятися на подіум аж 17 разів протягом сезону.</p>
+
+                <hr>
+
+                <h3>🏎️ Тріумф командного дуету Alpine</h3>
+                <p>Головним секретом успіху Alpine стала відсутність явного "першого" чи "другого" номера — обидва пілоти регулярно приносили максимальні очки. Yaroslav LOBODA та Yaroslav PANKRATOV провели чудовий сезон, а подвійний подіум на 11-му етапі в Катарі став остаточною крапкою в боротьбі за титул.</p>
+                <p>Хоча Aston Martin випередив усіх за кількістю перемог (9 перемог завдяки достроковому чемпіону Yulian HULYK), саме командний заліковий баланс Alpine (2 перемоги та 17 подіумів проти 10 подіумів Aston Martin) вирішив долю трофею на користь колективу у синьо-рожевих кольорах.</p>
+
+                <hr>
+
+                <h3>⚔️ Запекла інтрига за 3-тє місце перед Абу-Дабі</h3>
+                <p>Якщо питання першого (Alpine — 277 pts) та другого (Aston Martin — 204 pts) місць вже вирішені, то на фінальному етапі в Абу-Дабі розгорнеться справжня драма за бронзу командного заліку та позиції у топ-5!</p>
+
+                <p>Наразі розриви між командами з 3-го по 6-те місце є мінімальними, і фінальна гонка може повністю переписати таблицю:</p>
+
+                <ul>
+                    <li><strong>3. Kick Sauber — 134 pts</strong> (0 перемог, 7 подіумів)</li>
+                    <li><strong>4. Mercedes — 123 pts</strong> (1 перемога, 3 подіуми) — <em>відставання 11 очок</em></li>
+                    <li><strong>5. Haas F1 Team — 115 pts</strong> (0 перемог, 1 подіум) — <em>відставання 19 очок</em></li>
+                    <li><strong>6. Red Bull Racing — 106 pts</strong> (0 перемог, 1 подіум) — <em>відставання 28 очок</em></li>
+                </ul>
+
+                <p>Кандидат номер один на бронзу — <strong>Kick Sauber</strong> (134 pts). Команда демонструє високу стабільність завдяки 7 подіумам, проте <strong>Mercedes</strong> відстає лише на 11 пунктів (123 pts) і має у своєму арсеналі перемогу, що додає їм упевненості перед фіналом.</p>
+
+                <p>Не варто списувати з рахунків і <strong>Haas F1 Team</strong> (115 pts). Після першого подіуму в Маямі та сильного виступу в Катарі команда відстає від 3-го місця на 19 очок. За умови вдалого подвійного фінішу Haas може поборотися як мінімум за 4-ту сходинку з Mercedes, або навіть замахнутися на топ-3.</p>
+
+                <p>Математичні шанси на прорив зберігає навіть <strong>Red Bull Racing</strong> (106 pts), проте їм у напрямку 3-го місця знадобиться справжнє гоночне диво та сходи конкурентів.</p>
+
+                <hr>
+
+                <h3>📊 Поточний стан у Кубку Конструкторів (перед 12-м етапом):</h3>
+                <p>
+                    🥇 <strong>1. Alpine</strong> — 277 pts (🏆 Champions)<br>
+                    🥈 <strong>2. Aston Martin</strong> — 204 pts<br>
+                    🥉 <strong>3. Kick Sauber</strong> — 134 pts<br>
+                    4. Mercedes — 123 pts<br>
+                    5. Haas F1 Team — 115 pts<br>
+                    6. Red Bull Racing — 106 pts<br>
+                    7. Williams — 79 pts<br>
+                    8. Ferrari — 58 pts<br>
+                    9. McLaren — 34 pts<br>
+                    10. Racing Bulls — 27 pts
+                </p>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;"><strong>Вітаємо Alpine із вибороним Кубком Конструкторів! Чекаємо грандіозного фіналу в Абу-Дабі! 🏆🇫🇷🏎️</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО 2: Qatar GP -->
+    <div id="qatarModal" class="news-modal-overlay">
+        <div class="news-modal-content">
+            <button class="news-modal-close" onclick="closeNewsModal('qatarModal')">&times;</button>
+            
+            <div class="news-modal-header">
+                <span class="news-badge">Етап 11 • Qatar</span>
+                <div class="news-date" style="margin-top: 10px;">10 Вересня 2026 | Race Weekend</div>
+                <h1 class="modal-article-title">🇶🇦 ГРАН-ПРІ КАТАРУ: PANKRATOV ПЕРЕМАГАЄ ПІСЛЯ НАПРУЖЕНОЇ БОРОТЬБИ ДО ОСТАННІХ КІЛ</h1>
+            </div>
+
+            <div class="news-modal-body">
+                <img src="images/news/qatar-gp-card.png" alt="Гран-прі Катару" class="news-modal-banner">
+
+                <p>11-й етап UGS F1 пройшов у нічному Катарі. Пілотів чекала суха траса, 57 кіл основної гонки та звичайний формат гоночного вікенду. Уже зі старту пелотон подарував глядачам активну боротьбу, а лідерство протягом дистанції переходило з рук у руки.</p>
+
+                <p>У підсумку перемогу здобув <strong>Yaroslav PANKRATOV</strong> на Alpine, другим фінішував його напарник <strong>Yaroslav LOBODA</strong>, а третю позицію посів <strong>Yevhenii PANCHENKO</strong> з Mercedes.</p>
+
+                <hr>
+
+                <h3>🟢 Яскравий старт PANCHENKO</h3>
+                <p>Старт гонки одразу вніс серйозні зміни до розстановки сил. Yevhenii PANCHENKO на Mercedes чудово провів перші метри та зумів вирватися вперед, ставши лідером гонки.</p>
+                <p>Одразу позаду також відбулися важливі зміни. Volodymyr MYKHALYUK на Red Bull Racing провів сильний старт і піднявся до 5-ї позиції. Натомість Nazarii PETRIV на Racing Bulls втратив кілька місць і опустився на 10-ту позицію.</p>
+                <p>Найскладнішим старт виявився для Stanislav MARCHENKO. Пілот Haas розпочинав гонку з 4-го місця, однак після старту відкотився аж на 13-ту позицію.</p>
+                <p>Попереду ж сформувалася трійка лідерів — PANCHENKO, LOBODA та PANKRATOV.</p>
+
+                <hr>
+
+                <h3>🔄 Перші зміни — вже на 5-му колі</h3>
+                <p>До 5-го кола ситуація в пелотоні почала поступово змінюватися. Пілот Haas HLIB BRATUS провів сильний відрізок і піднявся на 5-ту позицію. Його напарник Stanislav MARCHENKO також почав відігравати втрачене після невдалого старту та вже перебував на 10-му місці.</p>
+                <p>На чолі гонки боротьба залишалася щільною. Yevhenii PANCHENKO продовжував очолювати пелотон, а два пілоти Alpine — Yaroslav LOBODA та Yaroslav PANKRATOV — залишалися поруч. Гонка поступово переходила у фазу тактичної боротьби, де кожна помилка могла коштувати кількох позицій.</p>
+
+                <hr>
+
+                <h3>⚔️ 15-те коло — боротьба набирає обертів</h3>
+                <p>До 15-го кола розстановка в лідируючій групі та серед переслідувачів уже зазнала помітних змін. Лідер перегонів мав перевагу 3,086 секунди над найближчим переслідувачем, тоді як третя позиція відставала на 5,403 секунди.</p>
+                <p>Stanislav MARCHENKO, який на старті відкотився з 4-го на 13-те місце, продовжував відігравати позиції та вже перебував на 6-й позиції. Таким чином, невдалий старт не зламав гонку для пілота Haas — навпаки, MARCHENKO поступово повертався до боротьби у верхній частині пелотону.</p>
+
+                <hr>
+
+                <h3>🔥 30-те коло — Alpine виходить уперед</h3>
+                <p>На 30-му колі боротьба за перші позиції стала ще цікавішою. Зафіксована розстановка показувала, що лідер уже мав перевагу 16,784 секунди, тоді як найближчі суперники продовжували боротися між собою за позиції.</p>
+                <p>У цей момент гонка вже остаточно перетворилася на довгу боротьбу за темп та позицію на фінальній третині дистанції. Саме в цей період Yaroslav PANKRATOV поступово наближався до головної мети — перемоги на 11-му етапі.</p>
+
+                <hr>
+
+                <h3>⚡ 40-ве коло — 0,151 секунди!</h3>
+                <p>Якщо на середині дистанції ситуація виглядала відносно стабільною, то до 40-го кола боротьба за перемогу стала максимально напруженою. Лідером залишався Yaroslav PANKRATOV, але його перевага над найближчим переслідувачем становила лише 0,151 секунди!</p>
+                <p>Фактично це означало, що будь-яка помилка, невдалий вихід із повороту або атака могла миттєво змінити лідера гонки. Позаду першої двійки також тримався Yevhenii PANCHENKO, який продовжував боротьбу за подіум.</p>
+
+                <hr>
+
+                <h3>🏁 Фініш та офіційні результати 57 кіл</h3>
+                <p>Попри величезний тиск у фінальній частині дистанції, Yaroslav PANKRATOV зумів втримати першу позицію та довести гонку до перемоги з загальним часом <strong>83:06.161</strong>.</p>
+                <p>Другим фінішував Yaroslav LOBODA (+3.126), завдяки чому Alpine оформив подвійний подіум. Третє місце посів Yevhenii PANCHENKO (+4.577), утримуючи високий темп до самого кінця.</p>
+                <p>Блискучу гонку на 4-й позиції завершив Volodymyr SHAKULA (Kick Sauber), який відстав від лідера всього на 7.174 секунди. Також до очкової зони потрапили Rostyslav PYLIAK (9-е місце, Ferrari) та Ivan KOBRYN (10-е місце, McLaren), які поступилися лідеру в один круг.</p>
+
+                <p><strong>🏆 Подіум 11-го етапу:</strong></p>
+                <ul>
+                    <li>🥇 Yaroslav PANKRATOV — Alpine (25+1 очко)</li>
+                    <li>🥈 Yaroslav LOBODA — Alpine (18 очок)</li>
+                    <li>🥉 Yevhenii PANCHENKO — Mercedes (15 очок)</li>
+                </ul>
+
+                <p><strong>🥇 Pole Position — PANKRATOV</strong><br>
+                Ще до старту основної гонки Yaroslav PANKRATOV здобув Pole Position. Таким чином, пілот Alpine провів практично ідеальний етап: стартував із першої позиції, пережив боротьбу за лідерство на початку гонки, повернув собі перевагу та зрештою забрав перемогу.</p>
+
+                <p><strong>🚀 MARCHENKO — від 13-го місця до Driver of the Day</strong><br>
+                Однією з найбільш помітних історій гонки став виступ Stanislav MARCHENKO. Після старту з 4-ї позиції пілот Haas відкотився на 13-те місце, втративши одразу дев'ять позицій. Однак MARCHENKO не здався та фінішував на 8-му місці з очками в активі (+1:15.946). Результатом цієї боротьби стали одразу дві нагороди: <strong>🏆 Driver of the Day</strong> та <strong>⚡ Fastest Lap</strong>.</p>
+
+                <p><strong>❌ Технічні проблеми та сходження (DNF)</strong><br>
+                Для Stanyslav KRICHFALOVSKYI етап у Катарі завершився ще під час кваліфікації через технічні проблеми Kick Sauber. Ще одним DNF став резервний пілот Williams Oleksiy FEDOTOV.</p>
+
+                <hr>
+
+                <h3>🏁 ПІДСУМКИ 11-ГО ЕТАПУ (QATAR GP — UGS F1)</h3>
+                <p>
+                    🏆 <strong>Переможець:</strong> Yaroslav PANKRATOV (Alpine) — 83:06.161<br>
+                    🥈 <strong>2 місце:</strong> Yaroslav LOBODA (Alpine) — +3.126<br>
+                    🥉 <strong>3 місце:</strong> Yevhenii PANCHENKO (Mercedes) — +4.577<br>
+                    4 місце: Volodymyr SHAKULA (Kick Sauber) — +7.174<br>
+                    5 місце: Hlib BRATUS (Haas F1 Team) — +36.385<br>
+                    6 місце: Volodymyr MYKHALYUK (Red Bull Racing) — +52.239<br>
+                    7 місце: Nazarii PETRIV (Racing Bulls) — +1:07.576<br>
+                    8 місце: Stanislav MARCHENKO (Haas F1 Team) — +1:15.946<br>
+                    9 місце: Rostyslav PYLIAK (Ferrari) — +1 lap<br>
+                    10 місце: Ivan KOBRYN (McLaren) — +1 lap<br>
+                    11 місце: Fedir DAVYDOV (Aston Martin) — +1 lap<br>
+                    12 місце: Maksym MYKHLYK (Ferrari) — +2 laps
+                </p>
+                <p>
+                    🎯 <strong>Pole Position:</strong> Yaroslav PANKRATOV<br>
+                    ⚡ <strong>Fastest Lap:</strong> Stanislav MARCHENKO<br>
+                    ⭐ <strong>Driver of the Day:</strong> Stanislav MARCHENKO<br>
+                    ❌ <strong>DNF:</strong> Oleksiy FEDOTOV (Williams), Stanyslav KRICHFALOVSKYI (Kick Sauber)
+                </p>
+
+                <p style="text-align: center; font-size: 18px; margin-top: 25px;"><strong>Alpine оформила розкішний подвійний подіум, а PANKRATOV впевнено забирає статус короля нічного Катару! 🌙🏎️✨</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНЕ ВІКНО 3: Чемпіонство Yulian HULYK -->
     <div id="championModal" class="news-modal-overlay">
         <div class="news-modal-content">
             <button class="news-modal-close" onclick="closeNewsModal('championModal')">&times;</button>
@@ -109,7 +356,7 @@
         </div>
     </div>
 
-    <!-- МОДАЛЬНЕ ВІКНО 2: Miami GP -->
+    <!-- МОДАЛЬНЕ ВІКНО 4: Miami GP -->
     <div id="miamiModal" class="news-modal-overlay">
         <div class="news-modal-content">
             <button class="news-modal-close" onclick="closeNewsModal('miamiModal')">&times;</button>
@@ -121,7 +368,7 @@
             </div>
 
             <div class="news-modal-body">
-                <img src="images/news/miami-gp.png" alt="Гран-прі Маямі" class="news-modal-banner">
+                <img src="images/news/miami-gp-card.png" alt="Гран-прі Маямі" class="news-modal-banner">
 
                 <p>Десятий етап сезону UGS F1 завершився в американському Маямі, подарувавши вболівальникам насичений гоночний вікенд із боротьбою за позиції, яскравими обгонами, численними інцидентами та важливими рішеннями стюардів. За сонячної погоди пілоти вийшли на старт основної гонки, яка складалася з 57 кіл, а головною дійовою особою американського етапу став <strong>Yulian HULYK</strong>.</p>
 
@@ -150,7 +397,7 @@
 
                 <p>Ще один серйозний епізод стався на 20-му колі у 14-му повороті. Пілот Mercedes Maksym FILIPOV здійснював атаку на Williams, намагаючись пройти між Williams та Racing Bulls. Під час виконання маневру Mercedes не розрахував гальмування та допустив контакт із Racing Bulls. У результаті болід Racing Bulls було розвернуто, а його переднє антикрило отримало пошкодження. Стюарди встановили, що FILIPOV не забезпечив безпечного виконання атаки та не врахував присутність іншого боліда на траєкторії. Рішенням стюардів стали <strong>+10 секунд та 1 Penalty Point</strong> для пілота Mercedes.</p>
 
-                <p>Окремо після гонки було розглянуто ситуацію із синіми прапорами за участю Racing Bulls. На останній прямій перед фінішним поворотом Nazarii PETRIV, перебуваючи в статусі колового, пропустив швидших пілотів, які наближалися позаду. Попри це, ігрова система автоматично видала Racing Bulls +10 секунд за порушення правил синіх прапорів. Після перегляду епізоду стюарди встановили, що PETRIV своечасно пропустив швидші боліди, не перешкоджав їхньому руху та не здійснював небезпечних маневрів. У зв'язку з цим автоматичний штраф було скасовано, а результат пілота залишився без змін з урахуванням скасування санкції.</p>
+                <p>Окремо після гонки було розглянуто ситуацію із синіми прапорами за участю Racing Bulls. На останній прямій перед фінішним поворотом Nazarii PETRIV, перебуваючи в статусі колового, пропустив швидших пілотів, які наближалися позаду. Попри це, ігрова система автоматично видала Racing Bulls +10 секунд за порушення правил синіх прапорів. Після перегляду епізоду стюарди встановили, що PETRIV своєчасно пропустив швидші боліди, не перешкоджав їхньому руху та не здійснював небезпечних маневрів. У зв'язку з цим автоматичний штраф було скасовано, а результат пілота залишився без змін з урахуванням скасування санкції.</p>
 
                 <p>Ще один спірний момент стався на першому повороті за участю пілота Alpine. Рухаючись позаду Aston Martin, він залишив межі траси та зрізав поворот, пояснюючи маневр необхідністю уникнути можливого контакту. Однак після перегляду ситуації стюарди встановили, що між болідами залишалося достатньо простору для безпечного гальмування та проходження повороту в межах траси. Ознак неминучого зіткнення, яке змусило б Alpine залишити трасу, встановлено не було. У результаті попередження пілоту Alpine залишилося чинним.</p>
 
@@ -163,7 +410,7 @@
 
                 <p>Позаду нього фінішували Nazarii PETRIV, Volodymyr MYKHALYUK, Maksym MYKHLYK та Oleksii FEDOTOV. Чотири пілоти не змогли дістатися фінішу: Maksym FILIPOV, Mykhailo ILLIUK, Yaroslav MURCHIK, Stanislav KRICHFALOVSKYI та Olexandr SOPOTYAK завершили етап зі статусом <strong>DNF</strong>.</p>
 
-                <p>Попри два отримані покарання, саме <strong>Nazarii PETRIV</strong> був обраний <strong>Driver of the Day</strong>. Пілот Racing Bulls став одним із найбільш помітних учасників етапу, опинившись у центрі одразу кількох гоночних ситуацій та продемонструвавши активну боротьбу протягом дистанції.</p>
+                <p>Попри два отримані покарання, саме <strong>Nazarii PETRIV</strong> був обраний <strong>Driver of the Day</strong>. Пілот Racing Bulls став одним із наиболее помітних учасників етапу, опинившись у центрі одразу кількох гоночних ситуацій та продемонструвавши активну боротьбу протягом дистанції.</p>
 
                 <p>Таким чином, Miami GP став одним із найбільш насичених етапів сезону UGS F1. Yulian HULYK продемонстрував абсолютну перевагу та забрав перемогу, Pole Position і Fastest Lap, Volodymyr SHAKULA піднявся на другу сходинку, а Hlib BRATUS приніс Haas F1 Team довгоочікуваний перший подіум сезону.</p>
 
